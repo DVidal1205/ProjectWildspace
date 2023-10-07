@@ -19,13 +19,8 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout
     QLabel, QMainWindow, QPushButton, QSizePolicy,
     QSpacerItem, QStackedWidget, QStatusBar, QToolButton,
     QVBoxLayout, QWidget)
-from pwEngine import pwEngine
 
 class Ui_MainWindow(object):
-
-    def __init__(self):
-        self.engine = pwEngine(self)
-
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
@@ -163,11 +158,11 @@ class Ui_MainWindow(object):
 
         self.characterGL.addWidget(self.subclassTxt, 5, 1, 1, 1)
 
-        self.affiliationLabel = QLabel(self.gridLayoutWidget_2)
-        self.affiliationLabel.setObjectName(u"affiliationLabel")
-        self.affiliationLabel.setAlignment(Qt.AlignCenter)
+        self.alignmentLabel = QLabel(self.gridLayoutWidget_2)
+        self.alignmentLabel.setObjectName(u"alignmentLabel")
+        self.alignmentLabel.setAlignment(Qt.AlignCenter)
 
-        self.characterGL.addWidget(self.affiliationLabel, 4, 1, 1, 1)
+        self.characterGL.addWidget(self.alignmentLabel, 4, 1, 1, 1)
 
         self.genderTxt = QLabel(self.gridLayoutWidget_2)
         self.genderTxt.setObjectName(u"genderTxt")
@@ -199,11 +194,11 @@ class Ui_MainWindow(object):
 
         self.characterGL.addWidget(self.genderLabel, 4, 0, 1, 1)
 
-        self.affilicationTxt = QLabel(self.gridLayoutWidget_2)
-        self.affilicationTxt.setObjectName(u"affilicationTxt")
-        self.affilicationTxt.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
+        self.alignmentTxt = QLabel(self.gridLayoutWidget_2)
+        self.alignmentTxt.setObjectName(u"alignmentTxt")
+        self.alignmentTxt.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
 
-        self.characterGL.addWidget(self.affilicationTxt, 3, 1, 1, 1)
+        self.characterGL.addWidget(self.alignmentTxt, 3, 1, 1, 1)
 
         self.classTxt = QLabel(self.gridLayoutWidget_2)
         self.classTxt.setObjectName(u"classTxt")
@@ -235,23 +230,17 @@ class Ui_MainWindow(object):
 
         self.physicalGL.addWidget(self.raceLabel, 2, 0, 1, 1)
 
-        self.buildLabel = QLabel(self.gridLayoutWidget_3)
-        self.buildLabel.setObjectName(u"buildLabel")
-        self.buildLabel.setAlignment(Qt.AlignCenter)
-
-        self.physicalGL.addWidget(self.buildLabel, 6, 0, 1, 2)
-
         self.ageTxt = QLabel(self.gridLayoutWidget_3)
         self.ageTxt.setObjectName(u"ageTxt")
         self.ageTxt.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
 
         self.physicalGL.addWidget(self.ageTxt, 3, 0, 1, 1)
 
-        self.eyesLabel = QLabel(self.gridLayoutWidget_3)
-        self.eyesLabel.setObjectName(u"eyesLabel")
-        self.eyesLabel.setAlignment(Qt.AlignCenter)
+        self.buildLabel = QLabel(self.gridLayoutWidget_3)
+        self.buildLabel.setObjectName(u"buildLabel")
+        self.buildLabel.setAlignment(Qt.AlignCenter)
 
-        self.physicalGL.addWidget(self.eyesLabel, 4, 1, 1, 1)
+        self.physicalGL.addWidget(self.buildLabel, 4, 1, 1, 1)
 
         self.physicalTxt = QLabel(self.gridLayoutWidget_3)
         self.physicalTxt.setObjectName(u"physicalTxt")
@@ -271,18 +260,6 @@ class Ui_MainWindow(object):
 
         self.physicalGL.addWidget(self.heightTxt, 1, 1, 1, 1)
 
-        self.eyesTxt = QLabel(self.gridLayoutWidget_3)
-        self.eyesTxt.setObjectName(u"eyesTxt")
-        self.eyesTxt.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
-
-        self.physicalGL.addWidget(self.eyesTxt, 3, 1, 1, 1)
-
-        self.buildTxt = QLabel(self.gridLayoutWidget_3)
-        self.buildTxt.setObjectName(u"buildTxt")
-        self.buildTxt.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
-
-        self.physicalGL.addWidget(self.buildTxt, 5, 0, 1, 2)
-
         self.raceTxt = QLabel(self.gridLayoutWidget_3)
         self.raceTxt.setObjectName(u"raceTxt")
         self.raceTxt.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
@@ -294,6 +271,36 @@ class Ui_MainWindow(object):
         self.heightLabel.setAlignment(Qt.AlignCenter)
 
         self.physicalGL.addWidget(self.heightLabel, 2, 1, 1, 1)
+
+        self.eyesLabel = QLabel(self.gridLayoutWidget_3)
+        self.eyesLabel.setObjectName(u"eyesLabel")
+        self.eyesLabel.setAlignment(Qt.AlignCenter)
+
+        self.physicalGL.addWidget(self.eyesLabel, 6, 0, 1, 1)
+
+        self.buildTxt = QLabel(self.gridLayoutWidget_3)
+        self.buildTxt.setObjectName(u"buildTxt")
+        self.buildTxt.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
+
+        self.physicalGL.addWidget(self.buildTxt, 3, 1, 1, 1)
+
+        self.eyesTxt = QLabel(self.gridLayoutWidget_3)
+        self.eyesTxt.setObjectName(u"eyesTxt")
+        self.eyesTxt.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
+
+        self.physicalGL.addWidget(self.eyesTxt, 5, 0, 1, 1)
+
+        self.hairTxt = QLabel(self.gridLayoutWidget_3)
+        self.hairTxt.setObjectName(u"hairTxt")
+        self.hairTxt.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
+
+        self.physicalGL.addWidget(self.hairTxt, 5, 1, 1, 1)
+
+        self.hairLabel = QLabel(self.gridLayoutWidget_3)
+        self.hairLabel.setObjectName(u"hairLabel")
+        self.hairLabel.setAlignment(Qt.AlignCenter)
+
+        self.physicalGL.addWidget(self.hairLabel, 6, 1, 1, 1)
 
         self.verticalLayoutWidget_3 = QWidget(self.npcWidgetContainer)
         self.verticalLayoutWidget_3.setObjectName(u"verticalLayoutWidget_3")
@@ -404,14 +411,9 @@ class Ui_MainWindow(object):
 
         self.stackedWidget.setCurrentIndex(1)
 
-    # Slots
-        self.generateBtn.clicked.connect(self.generate)
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
-
-    def generate(self):
-        self.engine.genNPC()
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
@@ -429,27 +431,29 @@ class Ui_MainWindow(object):
         self.lastNameTxt.setText(QCoreApplication.translate("MainWindow", u"Last Name", None))
         self.lastNameLabel.setText("")
         self.subclassTxt.setText(QCoreApplication.translate("MainWindow", u"Subclass", None))
-        self.affiliationLabel.setText("")
+        self.alignmentLabel.setText("")
         self.genderTxt.setText(QCoreApplication.translate("MainWindow", u"Gender", None))
         self.subclassLabel.setText("")
         self.firstNameLabel.setText("")
         self.firstNameTxt.setText(QCoreApplication.translate("MainWindow", u"First Name", None))
         self.genderLabel.setText("")
-        self.affilicationTxt.setText(QCoreApplication.translate("MainWindow", u"Affiliation", None))
+        self.alignmentTxt.setText(QCoreApplication.translate("MainWindow", u"Alignment", None))
         self.classTxt.setText(QCoreApplication.translate("MainWindow", u"Class", None))
         self.classLabel.setText("")
         self.characterTxt.setText(QCoreApplication.translate("MainWindow", u"Character", None))
         self.raceLabel.setText("")
-        self.buildLabel.setText("")
         self.ageTxt.setText(QCoreApplication.translate("MainWindow", u"Age", None))
-        self.eyesLabel.setText("")
+        self.buildLabel.setText("")
         self.physicalTxt.setText(QCoreApplication.translate("MainWindow", u"Physical", None))
         self.ageLabel.setText("")
         self.heightTxt.setText(QCoreApplication.translate("MainWindow", u"Height", None))
-        self.eyesTxt.setText(QCoreApplication.translate("MainWindow", u"Eyes", None))
-        self.buildTxt.setText(QCoreApplication.translate("MainWindow", u"Build", None))
         self.raceTxt.setText(QCoreApplication.translate("MainWindow", u"Race", None))
         self.heightLabel.setText("")
+        self.eyesLabel.setText("")
+        self.buildTxt.setText(QCoreApplication.translate("MainWindow", u"Build", None))
+        self.eyesTxt.setText(QCoreApplication.translate("MainWindow", u"Eyes", None))
+        self.hairTxt.setText(QCoreApplication.translate("MainWindow", u"Hair", None))
+        self.hairLabel.setText("")
         self.generateBtn.setText(QCoreApplication.translate("MainWindow", u"Generate!", None))
         self.npcBtn.setText(QCoreApplication.translate("MainWindow", u"NPC", None))
         self.buildingBtn.setText(QCoreApplication.translate("MainWindow", u"Building", None))
