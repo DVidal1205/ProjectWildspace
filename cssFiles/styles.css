@@ -1,8 +1,10 @@
 :root {
     --bg-color: #282a36;
-    --main-textc: #fff8de;
+    --main-textc: rgba(119,244,136,255);
+    --alt-textc: #ffffff;
     --nav-color: #b799e3;
 
+    --tiny-padding: 2px;
     --small-margin: 20px;
     --mid-margin: 40px;
     --large-margin: 100px;
@@ -13,15 +15,17 @@
     
     --small-font: 20px;
     --mid-font: 35px;
+    --font-fam: Trebuchet MS, sans-serif;
 
     --tiny-border-width: 1px;
     --small-border-width: 5px;
 }
 
 html {
+    font-family: var(--font-fam);
     background-color: var(--bg-color);
     color: var(--main-textc);
-    height: 200vh;
+    height: 100%;
 }
 body {margin: 0; padding: 0;}
 
@@ -34,11 +38,11 @@ body {margin: 0; padding: 0;}
     justify-content: flex-end;
     align-items: center;
 }
-#projectName {left: var(--small-margin); position: absolute; font-size: min(var(--mid-font), 1.5vw);}
+#projectName {left: var(--small-margin); position: absolute; font-size: min(var(--mid-font), 1.5vw); color: var(--alt-textc);}
 .navlink {
     font-size: min(var(--small-font), 1.5vw);
     display: inline;
-    color: var(--main-textc);
+    color: var(--alt-textc);
     margin: 0 var(--small-margin) 0 var(--small-margin);
 }
 /*Nav Bar end */
@@ -65,12 +69,12 @@ body {margin: 0; padding: 0;}
 }
 
 fieldset {
-    padding: 0;
-    margin: var(--mid-margin) auto auto auto;
+    margin: var(--mid-margin) auto var(--mid-margin) auto;
     border: var(--small-border-width) groove var(--nav-color);
     width: min(var(--image-width), 50vw);
 }
 .mainText {
+    padding: var(--tiny-padding);
     width: min(var(--image-width), 50vw);
     font-size: min(var(--small-font), 1.5vw);
     word-wrap: break-word;
