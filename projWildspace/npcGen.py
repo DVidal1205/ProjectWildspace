@@ -115,7 +115,49 @@ class npc:
         "Tall", "Short", "Average", "Stocky", "Chubby", "Slender", "Hulking",
         "Compact", "Stout", "Lithe", "Robust", "Gangly", "Toned", "Gnarled"]
         self.genderList = ["Male", "Female", "Non-Binary", "Construct"]
-        
+        # Generate Class and Subclass
+        self.classesAndSubclasses = [
+        ["Artificer", ["Alchemist", "Artillerist", "Battle Smith"]],
+        ["Barbarian", ["Path of the Ancestral Guardian", "Path of the Battlerager", "Path of the Beast",
+                    "Path of the Berserker", "Path of the Storm Herald", "Path of the Totem Warrior",
+                    "Path of the Wild Soul"]],
+        ["Bard", ["College of Creation", "College of Eloquence", "College of Glamour", "College of Lore",
+                "College of Swords", "College of Valor", "College of Whispers"]],
+        ["Cleric", ["Arcana Domain", "Death Domain", "Forge Domain", "Grave Domain", "Knowledge Domain",
+                    "Life Domain", "Light Domain", "Nature Domain", "Order Domain", "Peace Domain",
+                    "Tempest Domain", "Trickery Domain", "Twilight Domain", "War Domain"]],
+        ["Druid", ["Circle of Dreams", "Circle of Spores", "Circle of Stars", "Circle of the Shepherd",
+                "Circle of the Land", "Circle of the Moon"]],
+        ["Fighter", ["Arcane Archer", "Banneret", "Battle Master", "Cavalier", "Champion", "Echo Knight",
+                    "Eldritch Knight", "Psi Knight", "Rune Knight", "Samurai"]],
+        ["Monk", ["Way of the Astral Self", "Way of the Drunken Master", "Way of Mercy", "Way of the Open Hand",
+                "Way of the Shadow", "Way of the Sun Soul", "Way of the Four Elements", "Way of the Kensei"]],
+        ["Paladin", ["Oath of the Ancients", "Oath of Conquest", "Oath of the Crown", "Oath of Devotion",
+                    "Oath of Redemption", "Oath of Vengeance"]],
+        ["Ranger", ["Beast Master", "Fey Wanderer", "Gloom Stalker", "Horizon Walker", "Hunter", "Monster Slayer",
+                    "Swarmkeeper"]],
+        ["Rogue", ["Arcane Trickster", "Assassin", "Inquisitive", "Mastermind", "Phantom", "Scout", "Soulknife",
+                "Swashbuckler", "Thief"]],
+        ["Sorcerer", ["Aberrant Mind", "Clockwork Soul", "Divine Soul", "Draconic Bloodline", "Shadow Magic",
+                    "Storm Sorcery", "Wild Magic"]],
+        ["Warlock", ["The Archfey", "The Celestial", "The Fathomless", "The Fiend", "The Genie", "The Great Old One",
+                    "The Hexblade", "The Undying"]],
+        ["Wizard", ["Bladesinging", "Chronurgy Magic", "Graviturgy Magic", "School of Abjuration", "School of Conjuration",
+                    "School of Divination", "School of Enchantment", "School of Evocation", "School of Illusion",
+                    "School of Necromancy", "School of Transmutation", "War Magic"]]]
+        self.alignmentList = [
+            "Chaotic Neutral",
+            "Chaotic Evil", 
+            "Chaotic Good",
+            "True Neutral",
+            "Neutral Good",
+            "Neutral Evil",
+            "Lawful Good",
+            "Lawful Neutral",
+            "Lawful Evil"
+        ]     
+
+
         # Generate Schema
         self.first_name_schema = ResponseSchema(name="first_name", description="Character first name")
         self.last_name_schema = ResponseSchema(name="last_name", description="Character last name")
@@ -153,10 +195,20 @@ class npc:
         # Create Prompt
         self.prompt = ChatPromptTemplate.from_template(template=self.template_string)
 
-        # Gather Race
-
+        # Race
         self.racial = random.choice(self.race_info)
         self.character_traits["race"] = self.racial["Race"]
+
+        # Class and Subclass
+        self.charClassList = random.choice(self.classesAndSubclasses)
+        self.charClass = self.charClassList[0]
+        self.subClass = random.choice(self.charClassList[1])
+        self.character_traits["class"] = self.charClass
+        self.character_traits["subclass"] = self.subClass
+        
+        # Alignment
+        self.alignment = random.choice(self.alignmentList)
+        self.character_traits["alignment"] = self.alignment
 
         # Age
         self.lowAge = int(self.racial["Low Age"])
@@ -204,9 +256,19 @@ class npc:
         self.character_traits["quirk"] = self.response_as_dict["quirk"]
         self.character_traits["fashion"] = self.response_as_dict["fashion"]
 
-        # Print
-        self.json_object = json.dumps(self.character_traits, indent = 4)
-        self.ui.label.setText(self.json_object)
+        # Update Labels
+        self.ui.firstNameLabel.setText(self.character_traits["first_name"])
+        self.ui.lastNameLabel.setText(self.character_traits["last_name"])
+        self.ui.genderLabel.setText(self.character_traits["gender"])
+        self.ui.classLabel.setText(self.character_traits["class"])
+        self.ui.subclassLabel.setText(self.character_traits["subclass"])
+        self.ui.alignmentLabel.setText(self.character_traits["alignment"])
+        self.ui.raceLabel.setText(self.character_traits["race"])
+        self.ui.heightLabel.setText(self.character_traits["height"])
+        self.ui.ageLabel.setText(self.character_traits["age"])
+        self.ui.eyesLabel.setText(self.character_traits["eyes"])
+        self.ui.buildLabel.setText(self.character_traits["build"])
+        self.ui.hairLabel.setText(self.character_traits["hair"])
 
 
         
