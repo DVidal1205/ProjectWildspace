@@ -37,6 +37,7 @@ Thumbs.db
 
 # qtcreator generated files
 *.pro.user*
+*.pyproject.user*
 CMakeLists.txt.user*
 
 # xemacs temporary files
@@ -70,5 +71,13 @@ CMakeLists.txt.user*
 # Binaries
 # --------
 *.dll
-*.exe
+
+# Ignore virtual environment directory
+.venv/
+
+# Ignore user-specific configuration files
+.vscode/
+.idea/
+*.pyc
+.env
 
