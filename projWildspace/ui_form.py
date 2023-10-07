@@ -19,13 +19,8 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
     QHBoxLayout, QLabel, QMainWindow, QPushButton,
     QSizePolicy, QSpacerItem, QStackedWidget, QToolButton,
     QVBoxLayout, QWidget)
-from pwEngine import pwEngine
 
 class Ui_MainWindow(object):
-
-    def __init__(self):
-        self.engine = pwEngine(self)
-
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
@@ -66,7 +61,7 @@ class Ui_MainWindow(object):
 
         self.stackedWidget = QStackedWidget(self.centralwidget)
         self.stackedWidget.setObjectName(u"stackedWidget")
-        self.stackedWidget.setGeometry(QRect(100, 50, 861, 491))
+        self.stackedWidget.setGeometry(QRect(100, 50, 861, 441))
         self.page_3 = QWidget()
         self.page_3.setObjectName(u"page_3")
         self.stackedWidget.addWidget(self.page_3)
@@ -395,51 +390,149 @@ class Ui_MainWindow(object):
 
         self.verticalLayoutWidget_3 = QWidget(self.npcWidgetContainer)
         self.verticalLayoutWidget_3.setObjectName(u"verticalLayoutWidget_3")
-        self.verticalLayoutWidget_3.setGeometry(QRect(-100, 430, 961, 51))
+        self.verticalLayoutWidget_3.setGeometry(QRect(-100, 430, 961, 16))
         self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget_3)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.bottomBarHL = QHBoxLayout()
-        self.bottomBarHL.setObjectName(u"bottomBarHL")
-        self.bottomBarHL.setContentsMargins(10, -1, 10, -1)
-        self.leftTopBarHLSpacer_2 = QSpacerItem(420, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
-
-        self.bottomBarHL.addItem(self.leftTopBarHLSpacer_2)
-
-        self.generateBtn = QPushButton(self.verticalLayoutWidget_3)
-        self.generateBtn.setObjectName(u"generateBtn")
-        font5 = QFont()
-        font5.setFamilies([u"Bahnschrift"])
-        self.generateBtn.setFont(font5)
-        self.generateBtn.setStyleSheet(u".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
-
-        self.bottomBarHL.addWidget(self.generateBtn)
-
-        self.horizontalSpacer_2 = QSpacerItem(5, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
-
-        self.bottomBarHL.addItem(self.horizontalSpacer_2)
-
-        self.dropDown = QComboBox(self.verticalLayoutWidget_3)
-        self.dropDown.setObjectName(u"dropDown")
-        self.dropDown.setFont(font5)
-        self.dropDown.setStyleSheet(u".QComboBox {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
-
-        self.bottomBarHL.addWidget(self.dropDown)
-
-        self.rightTopBarHLSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.bottomBarHL.addItem(self.rightTopBarHLSpacer_2)
-
-
-        self.verticalLayout.addLayout(self.bottomBarHL)
-
 
         self.npcGridContainer.addWidget(self.npcWidgetContainer, 0, 0, 1, 1)
 
         self.stackedWidget.addWidget(self.page1NPC)
-        self.page_2 = QWidget()
-        self.page_2.setObjectName(u"page_2")
-        self.stackedWidget.addWidget(self.page_2)
+        self.page2Building = QWidget()
+        self.page2Building.setObjectName(u"page2Building")
+        self.gridLayoutWidget_4 = QWidget(self.page2Building)
+        self.gridLayoutWidget_4.setObjectName(u"gridLayoutWidget_4")
+        self.gridLayoutWidget_4.setGeometry(QRect(10, 10, 841, 421))
+        self.buildingGridContainer = QGridLayout(self.gridLayoutWidget_4)
+        self.buildingGridContainer.setObjectName(u"buildingGridContainer")
+        self.buildingGridContainer.setContentsMargins(0, 0, 0, 0)
+        self.buildingTypeTxt = QLabel(self.gridLayoutWidget_4)
+        self.buildingTypeTxt.setObjectName(u"buildingTypeTxt")
+        self.buildingTypeTxt.setStyleSheet(u".QLabel {color: rgba(119,244,136,255);}")
+        self.buildingTypeTxt.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
+
+        self.buildingGridContainer.addWidget(self.buildingTypeTxt, 0, 1, 1, 1)
+
+        self.buildingGoodsLabel = QLabel(self.gridLayoutWidget_4)
+        self.buildingGoodsLabel.setObjectName(u"buildingGoodsLabel")
+        self.buildingGoodsLabel.setStyleSheet(u".QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}")
+        self.buildingGoodsLabel.setAlignment(Qt.AlignCenter)
+
+        self.buildingGridContainer.addWidget(self.buildingGoodsLabel, 11, 0, 1, 2)
+
+        self.buildingTrafficLabel = QLabel(self.gridLayoutWidget_4)
+        self.buildingTrafficLabel.setObjectName(u"buildingTrafficLabel")
+        self.buildingTrafficLabel.setStyleSheet(u".QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}")
+        self.buildingTrafficLabel.setAlignment(Qt.AlignCenter)
+
+        self.buildingGridContainer.addWidget(self.buildingTrafficLabel, 5, 1, 1, 1)
+
+        self.buildingArcLabel = QLabel(self.gridLayoutWidget_4)
+        self.buildingArcLabel.setObjectName(u"buildingArcLabel")
+        self.buildingArcLabel.setStyleSheet(u".QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}")
+        self.buildingArcLabel.setAlignment(Qt.AlignCenter)
+
+        self.buildingGridContainer.addWidget(self.buildingArcLabel, 3, 0, 1, 1)
+
+        self.buildingSizeLabel = QLabel(self.gridLayoutWidget_4)
+        self.buildingSizeLabel.setObjectName(u"buildingSizeLabel")
+        self.buildingSizeLabel.setStyleSheet(u".QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}")
+        self.buildingSizeLabel.setAlignment(Qt.AlignCenter)
+
+        self.buildingGridContainer.addWidget(self.buildingSizeLabel, 5, 0, 1, 1)
+
+        self.buildingNameTxt = QLabel(self.gridLayoutWidget_4)
+        self.buildingNameTxt.setObjectName(u"buildingNameTxt")
+        self.buildingNameTxt.setStyleSheet(u".QLabel {color: rgba(119,244,136,255);}")
+        self.buildingNameTxt.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
+
+        self.buildingGridContainer.addWidget(self.buildingNameTxt, 0, 0, 1, 1)
+
+        self.buildingGoodsTxt = QLabel(self.gridLayoutWidget_4)
+        self.buildingGoodsTxt.setObjectName(u"buildingGoodsTxt")
+        self.buildingGoodsTxt.setStyleSheet(u".QLabel {color: rgba(119,244,136,255);}")
+        self.buildingGoodsTxt.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
+
+        self.buildingGridContainer.addWidget(self.buildingGoodsTxt, 10, 0, 1, 2)
+
+        self.buildingDesLabel = QLabel(self.gridLayoutWidget_4)
+        self.buildingDesLabel.setObjectName(u"buildingDesLabel")
+        self.buildingDesLabel.setStyleSheet(u".QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}")
+        self.buildingDesLabel.setAlignment(Qt.AlignCenter)
+
+        self.buildingGridContainer.addWidget(self.buildingDesLabel, 7, 0, 1, 2)
+
+        self.buildingTrafficTxt = QLabel(self.gridLayoutWidget_4)
+        self.buildingTrafficTxt.setObjectName(u"buildingTrafficTxt")
+        self.buildingTrafficTxt.setStyleSheet(u".QLabel {color: rgba(119,244,136,255);}")
+        self.buildingTrafficTxt.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
+
+        self.buildingGridContainer.addWidget(self.buildingTrafficTxt, 4, 1, 1, 1)
+
+        self.buildingAmbLabel = QLabel(self.gridLayoutWidget_4)
+        self.buildingAmbLabel.setObjectName(u"buildingAmbLabel")
+        self.buildingAmbLabel.setStyleSheet(u".QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}")
+        self.buildingAmbLabel.setAlignment(Qt.AlignCenter)
+
+        self.buildingGridContainer.addWidget(self.buildingAmbLabel, 3, 1, 1, 1)
+
+        self.buildingAmbTxt = QLabel(self.gridLayoutWidget_4)
+        self.buildingAmbTxt.setObjectName(u"buildingAmbTxt")
+        self.buildingAmbTxt.setStyleSheet(u".QLabel {color: rgba(119,244,136,255);}")
+        self.buildingAmbTxt.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
+
+        self.buildingGridContainer.addWidget(self.buildingAmbTxt, 2, 1, 1, 1)
+
+        self.buildingDesTxt = QLabel(self.gridLayoutWidget_4)
+        self.buildingDesTxt.setObjectName(u"buildingDesTxt")
+        self.buildingDesTxt.setStyleSheet(u".QLabel {color: rgba(119,244,136,255);}")
+        self.buildingDesTxt.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
+
+        self.buildingGridContainer.addWidget(self.buildingDesTxt, 6, 0, 1, 2)
+
+        self.buildingTenderLabel = QLabel(self.gridLayoutWidget_4)
+        self.buildingTenderLabel.setObjectName(u"buildingTenderLabel")
+        self.buildingTenderLabel.setStyleSheet(u".QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}")
+        self.buildingTenderLabel.setAlignment(Qt.AlignCenter)
+
+        self.buildingGridContainer.addWidget(self.buildingTenderLabel, 9, 0, 1, 2)
+
+        self.buildingTenderTxt = QLabel(self.gridLayoutWidget_4)
+        self.buildingTenderTxt.setObjectName(u"buildingTenderTxt")
+        self.buildingTenderTxt.setStyleSheet(u".QLabel {color: rgba(119,244,136,255);}")
+        self.buildingTenderTxt.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
+
+        self.buildingGridContainer.addWidget(self.buildingTenderTxt, 8, 0, 1, 2)
+
+        self.buildingTypeLabel = QLabel(self.gridLayoutWidget_4)
+        self.buildingTypeLabel.setObjectName(u"buildingTypeLabel")
+        self.buildingTypeLabel.setStyleSheet(u".QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}")
+        self.buildingTypeLabel.setAlignment(Qt.AlignCenter)
+
+        self.buildingGridContainer.addWidget(self.buildingTypeLabel, 1, 1, 1, 1)
+
+        self.buildingSizeTxt = QLabel(self.gridLayoutWidget_4)
+        self.buildingSizeTxt.setObjectName(u"buildingSizeTxt")
+        self.buildingSizeTxt.setStyleSheet(u".QLabel {color: rgba(119,244,136,255);}")
+        self.buildingSizeTxt.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
+
+        self.buildingGridContainer.addWidget(self.buildingSizeTxt, 4, 0, 1, 1)
+
+        self.buildingArcTxt = QLabel(self.gridLayoutWidget_4)
+        self.buildingArcTxt.setObjectName(u"buildingArcTxt")
+        self.buildingArcTxt.setStyleSheet(u".QLabel {color: rgba(119,244,136,255);}")
+        self.buildingArcTxt.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
+
+        self.buildingGridContainer.addWidget(self.buildingArcTxt, 2, 0, 1, 1)
+
+        self.buildingNameLabel = QLabel(self.gridLayoutWidget_4)
+        self.buildingNameLabel.setObjectName(u"buildingNameLabel")
+        self.buildingNameLabel.setStyleSheet(u".QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}")
+        self.buildingNameLabel.setAlignment(Qt.AlignCenter)
+
+        self.buildingGridContainer.addWidget(self.buildingNameLabel, 1, 0, 1, 1)
+
+        self.stackedWidget.addWidget(self.page2Building)
         self.verticalLayoutWidget = QWidget(self.centralwidget)
         self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
         self.verticalLayoutWidget.setGeometry(QRect(0, 50, 100, 501))
@@ -455,6 +548,8 @@ class Ui_MainWindow(object):
         self.groupBtn = QPushButton(self.frame)
         self.groupBtn.setObjectName(u"groupBtn")
         self.groupBtn.setGeometry(QRect(10, 134, 80, 22))
+        font5 = QFont()
+        font5.setFamilies([u"Bahnschrift"])
         self.groupBtn.setFont(font5)
         self.groupBtn.setStyleSheet(u".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
         self.encounterBtn = QPushButton(self.frame)
@@ -493,21 +588,47 @@ class Ui_MainWindow(object):
 
         self.sideBarVL.addWidget(self.frame)
 
+        self.layoutWidget = QWidget(self.centralwidget)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.layoutWidget.setGeometry(QRect(100, 490, 861, 51))
+        self.bottomBarHL_2 = QHBoxLayout(self.layoutWidget)
+        self.bottomBarHL_2.setObjectName(u"bottomBarHL_2")
+        self.bottomBarHL_2.setContentsMargins(10, 0, 10, 0)
+        self.leftBottomBarHLSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.bottomBarHL_2.addItem(self.leftBottomBarHLSpacer_2)
+
+        self.generateBtn_2 = QPushButton(self.layoutWidget)
+        self.generateBtn_2.setObjectName(u"generateBtn_2")
+        self.generateBtn_2.setFont(font5)
+        self.generateBtn_2.setStyleSheet(u".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+
+        self.bottomBarHL_2.addWidget(self.generateBtn_2)
+
+        self.middleBottomBarHLSpacer_2 = QSpacerItem(5, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.bottomBarHL_2.addItem(self.middleBottomBarHLSpacer_2)
+
+        self.dropDown_2 = QComboBox(self.layoutWidget)
+        self.dropDown_2.setObjectName(u"dropDown_2")
+        self.dropDown_2.setFont(font5)
+        self.dropDown_2.setStyleSheet(u".QComboBox {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+
+        self.bottomBarHL_2.addWidget(self.dropDown_2)
+
+        self.rightBottomBarHLSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.bottomBarHL_2.addItem(self.rightBottomBarHLSpacer_2)
+
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(2)
 
-    # Slots
-        self.generateBtn.clicked.connect(self.generate)
-        self.buildingBtn.clicked.connect(self.buildingFrame)
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
-
-    def generate(self):
-        self.engine.genNPC()
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
@@ -548,7 +669,24 @@ class Ui_MainWindow(object):
         self.heightLabel.setText("")
         self.eyesLabel.setText("")
         self.ageLabel.setText("")
-        self.generateBtn.setText(QCoreApplication.translate("MainWindow", u"Generate!", None))
+        self.buildingTypeTxt.setText(QCoreApplication.translate("MainWindow", u"Type", None))
+        self.buildingGoodsLabel.setText("")
+        self.buildingTrafficLabel.setText("")
+        self.buildingArcLabel.setText("")
+        self.buildingSizeLabel.setText("")
+        self.buildingNameTxt.setText(QCoreApplication.translate("MainWindow", u"Name", None))
+        self.buildingGoodsTxt.setText(QCoreApplication.translate("MainWindow", u"Goods", None))
+        self.buildingDesLabel.setText("")
+        self.buildingTrafficTxt.setText(QCoreApplication.translate("MainWindow", u"Traffic", None))
+        self.buildingAmbLabel.setText("")
+        self.buildingAmbTxt.setText(QCoreApplication.translate("MainWindow", u"Ambience", None))
+        self.buildingDesTxt.setText(QCoreApplication.translate("MainWindow", u"Description", None))
+        self.buildingTenderLabel.setText("")
+        self.buildingTenderTxt.setText(QCoreApplication.translate("MainWindow", u"Tender", None))
+        self.buildingTypeLabel.setText("")
+        self.buildingSizeTxt.setText(QCoreApplication.translate("MainWindow", u"Size", None))
+        self.buildingArcTxt.setText(QCoreApplication.translate("MainWindow", u"Architecture", None))
+        self.buildingNameLabel.setText("")
         self.groupBtn.setText(QCoreApplication.translate("MainWindow", u"Group", None))
         self.encounterBtn.setText(QCoreApplication.translate("MainWindow", u"Encounter", None))
         self.npcBtn.setText(QCoreApplication.translate("MainWindow", u"NPC", None))
@@ -557,5 +695,6 @@ class Ui_MainWindow(object):
         self.worldBtn.setText(QCoreApplication.translate("MainWindow", u"World", None))
         self.townBtn.setText(QCoreApplication.translate("MainWindow", u"Town", None))
         self.warningBtn.setText(QCoreApplication.translate("MainWindow", u"...", None))
+        self.generateBtn_2.setText(QCoreApplication.translate("MainWindow", u"Generate!", None))
     # retranslateUi
 
