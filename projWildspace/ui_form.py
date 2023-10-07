@@ -323,9 +323,6 @@ class Ui_MainWindow(object):
         self.bottomBarHL.addItem(self.horizontalSpacer_2)
 
         self.dropDown = QComboBox(self.horizontalLayoutWidget_2)
-        self.dropDown.addItem("")
-        self.dropDown.addItem("")
-        self.dropDown.addItem("")
         self.dropDown.setObjectName(u"dropDown")
 
         self.bottomBarHL.addWidget(self.dropDown)
@@ -444,10 +441,6 @@ class Ui_MainWindow(object):
         self.raceTxt.setText(QCoreApplication.translate("MainWindow", u"Race", None))
         self.heightLabel.setText("")
         self.generateBtn.setText(QCoreApplication.translate("MainWindow", u"Generate!", None))
-        self.dropDown.setItemText(0, QCoreApplication.translate("MainWindow", u"1", None))
-        self.dropDown.setItemText(1, QCoreApplication.translate("MainWindow", u"2", None))
-        self.dropDown.setItemText(2, QCoreApplication.translate("MainWindow", u"3", None))
-
         self.npcBtn.setText(QCoreApplication.translate("MainWindow", u"NPC", None))
         self.buildingBtn.setText(QCoreApplication.translate("MainWindow", u"Building", None))
         self.townBtn.setText(QCoreApplication.translate("MainWindow", u"Town", None))
