@@ -2,12 +2,13 @@
 import sys
 
 from PySide6.QtWidgets import QApplication, QMainWindow
-
+from PySide6.QtGui import QIcon
 # Important:
 # You need to run the following command to generate the ui_form.py file
 #     pyside6-uic form.ui -o ui_form.py, or
 #     pyside2-uic form.ui -o ui_form.py
 from ui_form import Ui_MainWindow
+
 
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
@@ -20,4 +21,9 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     widget = MainWindow()
     widget.show()
+
+    # Set the Icon
+    icon = QIcon("images\wildspace.png")
+    widget.setWindowIcon(icon)
+
     sys.exit(app.exec())

@@ -5,6 +5,7 @@
         "ui_form.py",
         "pwEngine.py",
         "npcGen.py",
-        "bldgGen.py"
-    ]
+        "bldgGen.py",
+        "images/wildspace.png"
+   ]
 }

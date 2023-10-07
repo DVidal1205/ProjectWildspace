@@ -23,7 +23,11 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Project Wildspace 0.0.1</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>images/wildspace.png</normaloff>images/wildspace.png</iconset>
   </property>
   <property name="layoutDirection">
    <enum>Qt::LeftToRight</enum>
@@ -52,7 +56,7 @@
       <number>0</number>
      </property>
      <item>
-      <widget class="QFrame" name="frame_2">
+      <widget class="QFrame" name="topBarHLFrame">
        <property name="styleSheet">
         <string notr="true">.QFrame {background: rgba(30, 30, 38, 255)}</string>
        </property>
@@ -65,7 +69,7 @@
        <widget class="QLabel" name="titleLabel">
         <property name="geometry">
          <rect>
-          <x>340</x>
+          <x>350</x>
           <y>0</y>
           <width>281</width>
           <height>49</height>
@@ -84,23 +88,23 @@
          <string>Project Wildspace</string>
         </property>
        </widget>
-       <widget class="QToolButton" name="hamburgerBtn">
+       <widget class="QLabel" name="label">
         <property name="geometry">
          <rect>
-          <x>37</x>
-          <y>11</y>
-          <width>26</width>
-          <height>26</height>
+          <x>920</x>
+          <y>10</y>
+          <width>31</width>
+          <height>31</height>
          </rect>
         </property>
-        <property name="styleSheet">
-         <string notr="true">.QToolButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}</string>
-        </property>
         <property name="text">
-         <string>...</string>
+         <string/>
         </property>
-        <property name="popupMode">
-         <enum>QToolButton::DelayedPopup</enum>
+        <property name="pixmap">
+         <pixmap>images/wildspace.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
         </property>
        </widget>
       </widget>
@@ -116,10 +120,12 @@
       <height>441</height>
      </rect>
     </property>
-    <property name="currentIndex">
-     <number>2</number>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
-    <widget class="QWidget" name="page_3"/>
+    <property name="currentIndex">
+     <number>6</number>
+    </property>
     <widget class="QWidget" name="page1NPC">
      <widget class="QWidget" name="gridLayoutWidget">
       <property name="geometry">
@@ -132,37 +138,19 @@
       </property>
       <layout class="QGridLayout" name="npcGridContainer">
        <item row="0" column="0">
-        <widget class="QWidget" name="npcWidgetContainer" native="true">
+        <widget class="QWidget" name="npcFrame" native="true">
          <widget class="QWidget" name="verticalLayoutWidget_2">
           <property name="geometry">
            <rect>
             <x>430</x>
-            <y>0</y>
-            <width>421</width>
-            <height>411</height>
+            <y>-20</y>
+            <width>411</width>
+            <height>441</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="personalityVL">
            <item>
-            <widget class="QLabel" name="personalityTxy">
-             <property name="font">
-              <font>
-               <family>Bahnschrift Light</family>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
-             </property>
-             <property name="text">
-              <string>Personality</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="fashionTxt">
+            <widget class="QLabel" name="npcFashionTxt">
              <property name="font">
               <font>
                <family>Bahnschrift Light</family>
@@ -180,7 +168,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="fashionLabel">
+            <widget class="QLabel" name="npcFashionLabel">
              <property name="font">
               <font>
                <family>Bahnschrift Light</family>
@@ -199,10 +187,13 @@
              <property name="wordWrap">
               <bool>true</bool>
              </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="quirksTxt">
+            <widget class="QLabel" name="npcQuirksTxt">
              <property name="font">
               <font>
                <family>Bahnschrift Light</family>
@@ -220,7 +211,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="quirksLabel">
+            <widget class="QLabel" name="npcQuirksLabel">
              <property name="font">
               <font>
                <family>Bahnschrift Light</family>
@@ -239,10 +230,13 @@
              <property name="wordWrap">
               <bool>true</bool>
              </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="goalsTxt">
+            <widget class="QLabel" name="npcGoalsTxt">
              <property name="font">
               <font>
                <family>Bahnschrift Light</family>
@@ -260,7 +254,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="goalsLabel">
+            <widget class="QLabel" name="npcGoalsLabel">
              <property name="font">
               <font>
                <family>Bahnschrift Light</family>
@@ -279,10 +273,13 @@
              <property name="wordWrap">
               <bool>true</bool>
              </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="backgroundTxt">
+            <widget class="QLabel" name="npcBackgroundTxt">
              <property name="font">
               <font>
                <family>Bahnschrift Light</family>
@@ -300,7 +297,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="backgroundLabel">
+            <widget class="QLabel" name="npcBackgroundLabel">
              <property name="font">
               <font>
                <pointsize>8</pointsize>
@@ -317,6 +314,9 @@
              </property>
              <property name="wordWrap">
               <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
              </property>
             </widget>
            </item>
@@ -336,47 +336,48 @@
             <family>Bahnschrift Light</family>
            </font>
           </property>
-          <layout class="QGridLayout" name="characterGL">
-           <item row="4" column="0">
-            <widget class="QLabel" name="genderLabel">
+          <layout class="QGridLayout" name="npcCharacterGL">
+           <property name="horizontalSpacing">
+            <number>12</number>
+           </property>
+           <item row="0" column="0">
+            <widget class="QLabel" name="npcFirstNameTxt">
              <property name="font">
               <font>
                <family>Bahnschrift Light</family>
-               <pointsize>9</pointsize>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
              </property>
              <property name="text">
-              <string/>
+              <string>First Name</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
              </property>
             </widget>
            </item>
-           <item row="6" column="1">
-            <widget class="QLabel" name="subclassLabel">
+           <item row="0" column="1">
+            <widget class="QLabel" name="npcLastNameTxt">
              <property name="font">
               <font>
                <family>Bahnschrift Light</family>
-               <pointsize>8</pointsize>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
              </property>
              <property name="text">
-              <string/>
+              <string>Last Name</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
              </property>
             </widget>
            </item>
-           <item row="3" column="1">
-            <widget class="QLabel" name="alignmentTxt">
+           <item row="2" column="1">
+            <widget class="QLabel" name="npcAlignmentTxt">
              <property name="font">
               <font>
                <family>Bahnschrift Light</family>
@@ -394,25 +395,7 @@
             </widget>
            </item>
            <item row="1" column="0">
-            <widget class="QLabel" name="firstNameTxt">
-             <property name="font">
-              <font>
-               <family>Bahnschrift Light</family>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
-             </property>
-             <property name="text">
-              <string>First Name</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="firstNameLabel">
+            <widget class="QLabel" name="npcFirstNameLabel">
              <property name="font">
               <font>
                <family>Bahnschrift Light</family>
@@ -428,65 +411,13 @@
              <property name="alignment">
               <set>Qt::AlignCenter</set>
              </property>
-            </widget>
-           </item>
-           <item row="6" column="0">
-            <widget class="QLabel" name="classLabel">
-             <property name="font">
-              <font>
-               <family>Bahnschrift Light</family>
-               <pointsize>8</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
+             <property name="wordWrap">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
-           <item row="1" column="1">
-            <widget class="QLabel" name="lastNameTxt">
-             <property name="font">
-              <font>
-               <family>Bahnschrift Light</family>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
-             </property>
-             <property name="text">
-              <string>Last Name</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0">
-            <widget class="QLabel" name="genderTxt">
-             <property name="font">
-              <font>
-               <family>Bahnschrift Light</family>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
-             </property>
-             <property name="text">
-              <string>Gender</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QLabel" name="lastNameLabel">
+           <item row="3" column="1">
+            <widget class="QLabel" name="npcAlignmentLabel">
              <property name="font">
               <font>
                <family>Bahnschrift Light</family>
@@ -502,47 +433,13 @@
              <property name="alignment">
               <set>Qt::AlignCenter</set>
              </property>
-            </widget>
-           </item>
-           <item row="4" column="1">
-            <widget class="QLabel" name="alignmentLabel">
-             <property name="font">
-              <font>
-               <family>Bahnschrift Light</family>
-               <pointsize>9</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
+             <property name="wordWrap">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
-           <item row="0" column="0" colspan="2">
-            <widget class="QLabel" name="characterTxt">
-             <property name="font">
-              <font>
-               <family>Bahnschrift Light</family>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
-             </property>
-             <property name="text">
-              <string>Character</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="0">
-            <widget class="QLabel" name="classTxt">
+           <item row="4" column="0">
+            <widget class="QLabel" name="npcClassTxt">
              <property name="font">
               <font>
                <family>Bahnschrift Light</family>
@@ -559,8 +456,48 @@
              </property>
             </widget>
            </item>
-           <item row="5" column="1">
-            <widget class="QLabel" name="subclassTxt">
+           <item row="2" column="0">
+            <widget class="QLabel" name="npcGenderTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Gender</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLabel" name="npcLastNameLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+               <pointsize>9</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QLabel" name="npcSubclassTxt">
              <property name="font">
               <font>
                <family>Bahnschrift Light</family>
@@ -577,6 +514,72 @@
              </property>
             </widget>
            </item>
+           <item row="5" column="1">
+            <widget class="QLabel" name="npcSubclassLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+               <pointsize>8</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="genderLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+               <pointsize>9</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="npcClassLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+               <pointsize>8</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
          <widget class="QWidget" name="gridLayoutWidget_3">
@@ -588,9 +591,18 @@
             <height>191</height>
            </rect>
           </property>
-          <layout class="QGridLayout" name="physicalGL">
-           <item row="1" column="1">
-            <widget class="QLabel" name="heightTxt">
+          <layout class="QGridLayout" name="npcPhysicalGL">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="horizontalSpacing">
+            <number>12</number>
+           </property>
+           <item row="0" column="1">
+            <widget class="QLabel" name="npcHeightTxt">
              <property name="font">
               <font>
                <family>Bahnschrift Light</family>
@@ -607,26 +619,8 @@
              </property>
             </widget>
            </item>
-           <item row="3" column="0">
-            <widget class="QLabel" name="ageTxt">
-             <property name="font">
-              <font>
-               <family>Bahnschrift Light</family>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
-             </property>
-             <property name="text">
-              <string>Age</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="1">
-            <widget class="QLabel" name="buildLabel">
+           <item row="1" column="1">
+            <widget class="QLabel" name="npcHeightLabel">
              <property name="font">
               <font>
                <family>Bahnschrift Light</family>
@@ -642,46 +636,13 @@
              <property name="alignment">
               <set>Qt::AlignCenter</set>
              </property>
-            </widget>
-           </item>
-           <item row="3" column="1">
-            <widget class="QLabel" name="buildTxt">
-             <property name="font">
-              <font>
-               <family>Bahnschrift Light</family>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
-             </property>
-             <property name="text">
-              <string>Build</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             <property name="wordWrap">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
-           <item row="0" column="0" colspan="2">
-            <widget class="QLabel" name="physicalTxt">
-             <property name="font">
-              <font>
-               <family>Bahnschrift Light</family>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
-             </property>
-             <property name="text">
-              <string>Physical</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="raceTxt">
+           <item row="0" column="0">
+            <widget class="QLabel" name="npcRaceTxt">
              <property name="font">
               <font>
                <family>Bahnschrift Light</family>
@@ -698,8 +659,52 @@
              </property>
             </widget>
            </item>
-           <item row="5" column="0">
-            <widget class="QLabel" name="eyesTxt">
+           <item row="3" column="1">
+            <widget class="QLabel" name="npcBuildLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+               <pointsize>8</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="npcRraceLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+               <pointsize>8</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="npcEyesTxt">
              <property name="font">
               <font>
                <family>Bahnschrift Light</family>
@@ -716,10 +721,47 @@
              </property>
             </widget>
            </item>
-           <item row="6" column="1">
-            <widget class="QLabel" name="hairLabel">
+           <item row="2" column="0">
+            <widget class="QLabel" name="npcAgeTxt">
              <property name="font">
               <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Age</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLabel" name="npcBuildTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Build</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="npcAgeLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
                <pointsize>8</pointsize>
               </font>
              </property>
@@ -732,10 +774,13 @@
              <property name="alignment">
               <set>Qt::AlignCenter</set>
              </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
             </widget>
            </item>
-           <item row="5" column="1">
-            <widget class="QLabel" name="hairTxt">
+           <item row="4" column="1">
+            <widget class="QLabel" name="npcHairTxt">
              <property name="font">
               <font>
                <family>Bahnschrift Light</family>
@@ -752,11 +797,10 @@
              </property>
             </widget>
            </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="raceLabel">
+           <item row="5" column="0">
+            <widget class="QLabel" name="npcEyesLabel">
              <property name="font">
               <font>
-               <family>Bahnschrift Light</family>
                <pointsize>8</pointsize>
               </font>
              </property>
@@ -768,30 +812,14 @@
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
-           <item row="2" column="1">
-            <widget class="QLabel" name="heightLabel">
-             <property name="font">
-              <font>
-               <family>Bahnschrift Light</family>
-               <pointsize>8</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="0">
-            <widget class="QLabel" name="eyesLabel">
+           <item row="5" column="1">
+            <widget class="QLabel" name="npcHairLabel">
              <property name="font">
               <font>
                <pointsize>8</pointsize>
@@ -806,46 +834,24 @@
              <property name="alignment">
               <set>Qt::AlignCenter</set>
              </property>
-            </widget>
-           </item>
-           <item row="4" column="0">
-            <widget class="QLabel" name="ageLabel">
-             <property name="font">
-              <font>
-               <family>Bahnschrift Light</family>
-               <pointsize>8</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
+             <property name="wordWrap">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
           </layout>
-         </widget>
-         <widget class="QWidget" name="verticalLayoutWidget_3">
-          <property name="geometry">
-           <rect>
-            <x>-100</x>
-            <y>430</y>
-            <width>961</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout"/>
          </widget>
         </widget>
        </item>
       </layout>
      </widget>
     </widget>
-    <widget class="QWidget" name="page2Building">
+    <widget class="QWidget" name="page2Bldg">
+     <property name="font">
+      <font>
+       <family>Bahnschrift Light</family>
+      </font>
+     </property>
      <widget class="QWidget" name="gridLayoutWidget_4">
       <property name="geometry">
        <rect>
@@ -855,239 +861,1692 @@
         <height>421</height>
        </rect>
       </property>
-      <layout class="QGridLayout" name="buildingGridContainer">
-       <item row="0" column="1">
-        <widget class="QLabel" name="buildingTypeTxt">
-         <property name="styleSheet">
-          <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
-         </property>
-         <property name="text">
-          <string>Type</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="0" colspan="2">
-        <widget class="QLabel" name="buildingGoodsLabel">
-         <property name="styleSheet">
-          <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="1">
-        <widget class="QLabel" name="buildingTrafficLabel">
-         <property name="styleSheet">
-          <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="buildingArcLabel">
-         <property name="styleSheet">
-          <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0">
-        <widget class="QLabel" name="buildingSizeLabel">
-         <property name="styleSheet">
-          <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="buildingNameTxt">
-         <property name="styleSheet">
-          <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
-         </property>
-         <property name="text">
-          <string>Name</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="10" column="0" colspan="2">
-        <widget class="QLabel" name="buildingGoodsTxt">
-         <property name="styleSheet">
-          <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
-         </property>
-         <property name="text">
-          <string>Goods</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="0" colspan="2">
-        <widget class="QLabel" name="buildingDesLabel">
-         <property name="styleSheet">
-          <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1">
-        <widget class="QLabel" name="buildingTrafficTxt">
-         <property name="styleSheet">
-          <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
-         </property>
-         <property name="text">
-          <string>Traffic</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
-        <widget class="QLabel" name="buildingAmbLabel">
-         <property name="styleSheet">
-          <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QLabel" name="buildingAmbTxt">
-         <property name="styleSheet">
-          <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
-         </property>
-         <property name="text">
-          <string>Ambience</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="0" colspan="2">
-        <widget class="QLabel" name="buildingDesTxt">
-         <property name="styleSheet">
-          <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
-         </property>
-         <property name="text">
-          <string>Description</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="0" colspan="2">
-        <widget class="QLabel" name="buildingTenderLabel">
-         <property name="styleSheet">
-          <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="0" colspan="2">
-        <widget class="QLabel" name="buildingTenderTxt">
-         <property name="styleSheet">
-          <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
-         </property>
-         <property name="text">
-          <string>Tender</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QLabel" name="buildingTypeLabel">
-         <property name="styleSheet">
-          <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="buildingSizeTxt">
-         <property name="styleSheet">
-          <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
-         </property>
-         <property name="text">
-          <string>Size</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="buildingArcTxt">
-         <property name="styleSheet">
-          <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
-         </property>
-         <property name="text">
-          <string>Architecture</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-         </property>
-        </widget>
-       </item>
+      <layout class="QGridLayout" name="bldgGridContainer">
        <item row="1" column="0">
-        <widget class="QLabel" name="buildingNameLabel">
-         <property name="styleSheet">
-          <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+        <widget class="QFrame" name="bldgFrame">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
          </property>
-         <property name="text">
-          <string/>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
          </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
+         <widget class="QWidget" name="verticalLayoutWidget_8">
+          <property name="geometry">
+           <rect>
+            <x>370</x>
+            <y>-30</y>
+            <width>461</width>
+            <height>431</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="bldgBigVL">
+           <item>
+            <widget class="QLabel" name="bldgDesTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Description</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="bldgDesLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="bldgVendorTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Vendor</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="bldgVendorLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="bldgGoodsTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Goods</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="bldgGoodsLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="verticalLayoutWidget_7">
+          <property name="geometry">
+           <rect>
+            <x>9</x>
+            <y>9</y>
+            <width>321</width>
+            <height>391</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="bldgSmallVL">
+           <item>
+            <widget class="QLabel" name="bldgNameTxT">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Building Name</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="bldgNameLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="bldgTypeTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Type</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="bldgTypeLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="bldgSizeTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Size</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="bldgSizeLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="bldgArcTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Architecture</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="bldgArcLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="bldgAmbTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Ambience</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="bldgAmbLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="bldgTrafficTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Traffic</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="bldgTrafficLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page3Twn">
+     <widget class="QWidget" name="gridLayoutWidget_5">
+      <property name="geometry">
+       <rect>
+        <x>-1</x>
+        <y>-1</y>
+        <width>861</width>
+        <height>441</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="twnGridContainer">
+       <item row="0" column="0">
+        <widget class="QFrame" name="twnFrame">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
          </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QWidget" name="verticalLayoutWidget_3">
+          <property name="geometry">
+           <rect>
+            <x>19</x>
+            <y>9</y>
+            <width>261</width>
+            <height>421</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="twnSmallVL">
+           <item>
+            <widget class="QLabel" name="twnNameTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Town Name</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="twnNameLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="twnPopTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Population</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="twnPopLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="twnSprawlTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Sprawl</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="twnSprawlLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="twnArcTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Architecture</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="twnArcLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="twnIndTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Industries</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="twnIndLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="twnClimTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Climate</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="twnClimLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="verticalLayoutWidget_4">
+          <property name="geometry">
+           <rect>
+            <x>310</x>
+            <y>-30</y>
+            <width>521</width>
+            <height>451</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="twnBigVL">
+           <item>
+            <widget class="QLabel" name="twnGovTypeTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Governing Type</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="twnGovTypeLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="twnLoreTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Lore</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="twnLoreLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="twnQuestsTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Quests</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="twnQuestLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page4Enc">
+     <widget class="QWidget" name="gridLayoutWidget_6">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>861</width>
+        <height>441</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="encGridContainer">
+       <item row="0" column="0">
+        <widget class="QFrame" name="encFrame">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QWidget" name="verticalLayoutWidget_5">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>-30</y>
+            <width>841</width>
+            <height>461</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <widget class="QLabel" name="encNameTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Encounter Name</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="encNameLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="encCreaturesTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Creatures</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="encCreaturesLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="encDesTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Description</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="encDesLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page5Grp">
+     <widget class="QWidget" name="gridLayoutWidget_7">
+      <property name="geometry">
+       <rect>
+        <x>-1</x>
+        <y>-1</y>
+        <width>861</width>
+        <height>441</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="grpGridContainer">
+       <item row="0" column="0">
+        <widget class="QFrame" name="grpFrame">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QWidget" name="verticalLayoutWidget_6">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>0</y>
+            <width>261</width>
+            <height>411</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="grpSmallVL">
+           <item>
+            <widget class="QLabel" name="grpNameTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Group Name</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="grpNameLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="grpPopTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Population</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="grpPopTxt_2">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="grpMoralityTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Morality</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="grpMoralityLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="grpDevotionTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Devotion</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="grpDevotionTxt_2">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="verticalLayoutWidget_9">
+          <property name="geometry">
+           <rect>
+            <x>319</x>
+            <y>-31</y>
+            <width>521</width>
+            <height>451</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="grpBigVL">
+           <item>
+            <widget class="QLabel" name="grpCauseTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Cause</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="grpCauseLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="grpTraitsTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Distinctive Traits</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="grpTraitsLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="grpPresenceTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Presence</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="grpPresenceLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page6Dungeon"/>
+    <widget class="QWidget" name="page7World">
+     <widget class="QWidget" name="gridLayoutWidget_8">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>861</width>
+        <height>441</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="worldGridContainer">
+       <item row="0" column="0">
+        <widget class="QFrame" name="worldFrame">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QWidget" name="verticalLayoutWidget_10">
+          <property name="geometry">
+           <rect>
+            <x>19</x>
+            <y>19</y>
+            <width>441</width>
+            <height>401</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <widget class="QLabel" name="worldNameTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>World Name</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="worldNameEdit">
+             <property name="maxLength">
+              <number>25</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="worldTimeTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Time Period</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="worldTimeEdit">
+             <property name="maxLength">
+              <number>25</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="worldClimateTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Climate</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="worldClimateEdit">
+             <property name="maxLength">
+              <number>50</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="worldGeoTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Geography</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="worldGeoEdit">
+             <property name="maxLength">
+              <number>50</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="worldStabilityTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Stability</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="worldStabilityEdit">
+             <property name="maxLength">
+              <number>100</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="worldMagicTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Presence of Magic</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="worldMagicEdit">
+             <property name="maxLength">
+              <number>100</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="worldThemeTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Theme</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="worldThemeEdit">
+             <property name="maxLength">
+              <number>100</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QTextEdit" name="worldDesEdit">
+          <property name="geometry">
+           <rect>
+            <x>493</x>
+            <y>39</y>
+            <width>341</width>
+            <height>381</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Bahnschrift Light</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+         </widget>
+         <widget class="QLabel" name="worldDesTxt">
+          <property name="geometry">
+           <rect>
+            <x>498</x>
+            <y>17</y>
+            <width>331</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Bahnschrift Light</family>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+          </property>
+          <property name="text">
+           <string>World Description</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
         </widget>
        </item>
       </layout>
@@ -1114,7 +2573,7 @@
       <number>0</number>
      </property>
      <item>
-      <widget class="QFrame" name="frame">
+      <widget class="QFrame" name="sideBarVLFrame">
        <property name="styleSheet">
         <string notr="true">.QFrame {background: rgba(30, 30, 38, 255)}</string>
        </property>
@@ -1196,11 +2655,18 @@
           <height>26</height>
          </rect>
         </property>
+        <property name="font">
+         <font>
+          <family>Bahnschrift SemiBold</family>
+          <pointsize>13</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">.QToolButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}</string>
         </property>
         <property name="text">
-         <string>...</string>
+         <string>?</string>
         </property>
        </widget>
        <widget class="QPushButton" name="buildingBtn">
@@ -1224,7 +2690,7 @@
          <string>Building</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="worldBtn">
+       <widget class="QPushButton" name="dungeonBtn">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -1242,7 +2708,7 @@
          <string notr="true">.QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}</string>
         </property>
         <property name="text">
-         <string>World</string>
+         <string>Dungeon</string>
         </property>
        </widget>
        <widget class="QPushButton" name="townBtn">
@@ -1279,7 +2745,28 @@
          <string notr="true">.QToolButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}</string>
         </property>
         <property name="text">
-         <string>...</string>
+         <string/>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="worldBtn">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>200</y>
+          <width>80</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Bahnschrift</family>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">.QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}</string>
+        </property>
+        <property name="text">
+         <string>World</string>
         </property>
        </widget>
       </widget>
@@ -1295,7 +2782,7 @@
       <height>51</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="bottomBarHL_2">
+    <layout class="QHBoxLayout" name="bottomBarHL">
      <property name="leftMargin">
       <number>10</number>
      </property>
@@ -1303,7 +2790,7 @@
       <number>10</number>
      </property>
      <item>
-      <spacer name="leftBottomBarHLSpacer_2">
+      <spacer name="leftBottomBarHLSpacer">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -1316,17 +2803,14 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="generateBtn_2">
+      <widget class="QComboBox" name="dropDown">
        <property name="font">
         <font>
          <family>Bahnschrift</family>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">.QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}</string>
-       </property>
-       <property name="text">
-        <string>Generate!</string>
+        <string notr="true">.QComboBox {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}</string>
        </property>
       </widget>
      </item>
@@ -1347,19 +2831,53 @@
       </spacer>
      </item>
      <item>
-      <widget class="QComboBox" name="dropDown_2">
+      <widget class="QPushButton" name="generateBtn">
        <property name="font">
         <font>
          <family>Bahnschrift</family>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">.QComboBox {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}</string>
+        <string notr="true">.QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}</string>
+       </property>
+       <property name="text">
+        <string>Generate!</string>
        </property>
       </widget>
      </item>
      <item>
-      <spacer name="rightBottomBarHLSpacer_2">
+      <spacer name="middleBottomBarHLSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>5</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="font">
+        <font>
+         <family>Bahnschrift</family>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">.QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}</string>
+       </property>
+       <property name="text">
+        <string>Save</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="rightBottomBarHLSpacer">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
