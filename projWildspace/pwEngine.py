@@ -4,6 +4,7 @@ from langchain.output_parsers import StructuredOutputParser
 from langchain.prompts import ChatPromptTemplate
 from langchain.chat_models import ChatOpenAI
 from npcGen import npc
+from bldgGen import bldg
 import os
 
 # Create the PWEngine Class and Init method
@@ -19,12 +20,13 @@ class pwEngine:
 
         # Create Engines
         self.npc = npc(ui, self.chat_llm)
+        self.bldg = bldg(ui, self.chat_llm)
 
     def genNPC(self):
         self.npc.generate()
 
     def genBLDG(self):
-        pass
+        self.bldg.generate()
 
     def genTWN(self):    
         pass
