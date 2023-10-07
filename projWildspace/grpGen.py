@@ -21,8 +21,8 @@ class grp:
         self.morality = ResponseSchema(name="morality", description="Morality of the faction. Use D&D Alignments as responses")
         self.activities = ResponseSchema(name="activities", description="Activities / Presence of the faction (1-3 Sentences)")
         self.devotion = ResponseSchema(name="devotion", description="Level of devotion to the faction (ex. Low, Medium, High, Fanatic, etc)")
-        self.sentiment = ResponseSchema(name="sentiment", description="Sentiment towards outsiders (ex. Friendly, Neutral, Hostile, etc)")
-        self.response_schema = [self.name, self.goal, self.features, self.morality, self.activities, self.devotion, self.sentiment]
+        self.population = ResponseSchema(name="population", description="The population of this faction (1 to 25,000 inclusive)")
+        self.response_schema = [self.name, self.goal, self.features, self.morality, self.activities, self.devotion, self.population]
 
         # Create Schema Parser
         self.output_parser = StructuredOutputParser.from_response_schemas(self.response_schema)
@@ -51,3 +51,27 @@ class grp:
         # Parse Response
         self.response = self.chat_llm(self.messages)
         self.response_as_dict = self.output_parser.parse(self.response.content)
+
+        # TODO UPDATE LABELS
+
+
+    def save(self):
+
+        # Create File
+        self.filename = "/saves/groups/" + self.response_as_dict["name"].lower().replace(" ", "_") + ".txt"
+        self.file = open(self.filename, "w")
+
+        # Write to File
+        self.file.write("Name: " + self.response_as_dict["name"] + "\n")
+        self.file.write("Number of Members: " + self.response_as_dict["population"] + "\n")
+        self.file.write("Devotion: " + self.response_as_dict["devotion"] + "\n")
+        self.file.write("Morality: " + self.response_as_dict["morality"] + "\n")
+        self.file.write("Goal: " + self.response_as_dict["goal"] + "\n")
+        self.file.write("Features: " + self.response_as_dict["features"] + "\n")
+        self.file.write("Activities: " + self.response_as_dict["activities"] + "\n")
+
+        # Close File
+        self.file.close()
+
+
+        

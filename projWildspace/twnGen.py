@@ -15,7 +15,7 @@ class bldg:
         self.chat_llm = chat
 
         # Generate Schema
-        self.spawl = ResponseSchema(name="spawl", description="Sprawl Type (ex. Urban, Rural, etc)")
+        self.sprawl = ResponseSchema(name="sprawl", description="Sprawl Type (ex. Urban, Rural, etc)")
         self.name = ResponseSchema(name="name", description="Town Name. Be creative, and make the name sound fantasy by using prefixes from various languages")
         self.population = ResponseSchema(name="population", description="Number of citizens (25 to 100,000 inclusive)")
         self.architecture = ResponseSchema(name="architecture", description="Architectural Style (ex. Gothic, Modern, Steampunk, etc)")
@@ -24,7 +24,7 @@ class bldg:
         self.governing = ResponseSchema(name="governing", description="Describe the governing body and political state of the town, and perhaps name it (1-3 Sentences)")
         self.quests = ResponseSchema(name="quests", description="Describe the quests that the party may find in the town (1-3 Sentences)")
         self.climate = ResponseSchema(name="climate", description="Climate (ex. Temperate, Tropical, etc)")
-        self.response_schema = [self.spawl, self.name, self.population, self.architecture, self.industries, self.lore, self.governing, self.quests, self.climate]
+        self.response_schema = [self.sprawl, self.name, self.population, self.architecture, self.industries, self.lore, self.governing, self.quests, self.climate]
         
         # Create Schema Parser
         self.output_parser = StructuredOutputParser.from_response_schemas(self.response_schema)
@@ -53,3 +53,26 @@ class bldg:
         # Parse Response
         self.response = self.chat_llm(self.messages)
         self.response_as_dict = self.output_parser.parse(self.response.content)
+    
+        # TODO UPDATE LABELS
+
+
+    def save(self):
+
+        # Create File
+        self.filename = "/saves/towns/" + self.response_as_dict["name"].lower().replace(" ", "_") + ".txt"
+        self.file = open(self.filename, "w")
+
+        # Write to File
+        self.file.write("Name: " + self.response_as_dict["name"] + "\n")
+        self.file.write("Population: " + self.response_as_dict["population"] + "\n")
+        self.file.write("Sprawl: " + self.response_as_dict["sprawl"] + "\n")
+        self.file.write("Architecture: " + self.response_as_dict["architecture"] + "\n")
+        self.file.write("Climate: " + self.response_as_dict["climate"] + "\n")
+        self.file.write("Industries: " + self.response_as_dict["industries"] + "\n")
+        self.file.write("Lore: " + self.response_as_dict["lore"] + "\n")
+        self.file.write("Governing: " + self.response_as_dict["governing"] + "\n")
+        self.file.write("Quests: " + self.response_as_dict["quests"] + "\n")
+
+        # Close File
+        self.file.close()

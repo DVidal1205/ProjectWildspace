@@ -43,3 +43,19 @@ class pwEngine:
     def genGRP(self):
         self.grp.generate()
 
+    def saveNPC(self):
+        self.npc.save()
+    
+    def saveBLDG(self):
+        self.bldg.save()
+
+    def saveTWN(self):
+        self.twn.save()
+
+    def saveENC(self):
+        self.enc.save()
+    
+    def saveGRP(self):
+        self.grp.save()
+    
+

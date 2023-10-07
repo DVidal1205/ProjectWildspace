@@ -274,5 +274,39 @@ class npc:
         self.ui.npcQuirksLabel.setText(self.character_traits["quirk"])
         self.ui.npcFashionLabel.setText(self.character_traits["fashion"])
 
+                
+    def save(self):
+
+        # Create File
+        self.filename = "/saves/npcs/" + self.character_traits["first_name"].lower() + "_" + self.character_traits["last_name"].lower() + ".txt"
+        self.file = open(self.filename, "w")
+
+        # Character Traints
+        self.file.write("Character Traits \n")
+        self.file.write("First Name: " + self.character_traits["first_name"] + "\n")
+        self.file.write("Last Name: " + self.character_traits["last_name"] + "\n")
+        self.file.write("Gender: " + self.character_traits["gender"] + "\n")
+        self.file.write("Alignment: " + self.character_traits["alignment"] + "\n")
+        self.file.write("Class: " + self.character_traits["class"] + "\n")
+        self.file.write("Subclass: " + self.character_traits["subclass"] + "\n\n")
+
+        # Physical Traits
+        self.file.write("Physical Traits \n")
+        self.file.write("Race: " + self.character_traits["race"] + "\n")
+        self.file.write("Height: " + self.character_traits["height"] + "\n")
+        self.file.write("Age: " + self.character_traits["age"] + "\n")
+        self.file.write("Build: " + self.character_traits["build"] + "\n")
+        self.file.write("Hair Color: " + self.character_traits["hair"] + "\n")
+        self.file.write("Eye Color: " + self.character_traits["eyes"] + "\n\n")
+        
+        # Character Traits
+        self.file.write("Character Traits \n")
+        self.file.write("Background: " + self.character_traits["background"] + "\n")
+        self.file.write("Motivation: " + self.character_traits["motivation"] + "\n")
+        self.file.write("Quirk: " + self.character_traits["quirk"] + "\n")
+        self.file.write("Fashion: " + self.character_traits["fashion"] + "\n\n")
+
+        # Close File
+        self.file.close()
 
         
