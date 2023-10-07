@@ -19,11 +19,17 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout
     QLabel, QMainWindow, QPushButton, QSizePolicy,
     QSpacerItem, QStackedWidget, QStatusBar, QToolButton,
     QVBoxLayout, QWidget)
+from pwEngine import pwEngine
 
 class Ui_MainWindow(object):
+
+    def __init__(self):
+        self.engine = pwEngine(self)
+
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
+        MainWindow.resize(960, 540)
         MainWindow.setMinimumSize(QSize(960, 540))
         MainWindow.setMaximumSize(QSize(1920, 1080))
         MainWindow.setLayoutDirection(Qt.LeftToRight)
@@ -94,7 +100,11 @@ class Ui_MainWindow(object):
 
         self.fashionLabel = QLabel(self.verticalLayoutWidget_2)
         self.fashionLabel.setObjectName(u"fashionLabel")
+        font = QFont()
+        font.setPointSize(8)
+        self.fashionLabel.setFont(font)
         self.fashionLabel.setAlignment(Qt.AlignCenter)
+        self.fashionLabel.setWordWrap(True)
 
         self.personalityVL.addWidget(self.fashionLabel)
 
@@ -106,7 +116,9 @@ class Ui_MainWindow(object):
 
         self.quirksLabel = QLabel(self.verticalLayoutWidget_2)
         self.quirksLabel.setObjectName(u"quirksLabel")
+        self.quirksLabel.setFont(font)
         self.quirksLabel.setAlignment(Qt.AlignCenter)
+        self.quirksLabel.setWordWrap(True)
 
         self.personalityVL.addWidget(self.quirksLabel)
 
@@ -118,7 +130,9 @@ class Ui_MainWindow(object):
 
         self.goalsLabel = QLabel(self.verticalLayoutWidget_2)
         self.goalsLabel.setObjectName(u"goalsLabel")
+        self.goalsLabel.setFont(font)
         self.goalsLabel.setAlignment(Qt.AlignCenter)
+        self.goalsLabel.setWordWrap(True)
 
         self.personalityVL.addWidget(self.goalsLabel)
 
@@ -130,7 +144,9 @@ class Ui_MainWindow(object):
 
         self.backgroundLabel = QLabel(self.verticalLayoutWidget_2)
         self.backgroundLabel.setObjectName(u"backgroundLabel")
+        self.backgroundLabel.setFont(font)
         self.backgroundLabel.setAlignment(Qt.AlignCenter)
+        self.backgroundLabel.setWordWrap(True)
 
         self.personalityVL.addWidget(self.backgroundLabel)
 
@@ -411,9 +427,14 @@ class Ui_MainWindow(object):
 
         self.stackedWidget.setCurrentIndex(1)
 
+    # Slots
+        self.generateBtn.clicked.connect(self.generate)
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
+
+    def generate(self):
+        self.engine.genNPC()
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))

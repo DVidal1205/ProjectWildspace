@@ -269,6 +269,10 @@ class npc:
         self.ui.eyesLabel.setText(self.character_traits["eyes"])
         self.ui.buildLabel.setText(self.character_traits["build"])
         self.ui.hairLabel.setText(self.character_traits["hair"])
+        self.ui.backgroundLabel.setText(self.character_traits["background"])
+        self.ui.goalsLabel.setText(self.character_traits["motivation"])
+        self.ui.quirksLabel.setText(self.character_traits["quirk"])
+        self.ui.fashionLabel.setText(self.character_traits["fashion"])
 
 
         

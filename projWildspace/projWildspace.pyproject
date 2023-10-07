@@ -2,6 +2,8 @@
     "files": [
         "mainwindow.py",
         "form.ui",
-        "ui_form.py"
+        "ui_form.py",
+        "pwEngine.py",
+        "npcGen.py"
     ]
 }
