@@ -1,12 +1,8 @@
-from dotenv import load_dotenv
 from langchain.output_parsers import ResponseSchema
 from langchain.output_parsers import StructuredOutputParser
 from langchain.prompts import ChatPromptTemplate
-from langchain.chat_models import ChatOpenAI
-import math
 import random
 
-# Create the PWEngine Class and Init method
 class enc:
 
     def __init__(self, ui, chat):
@@ -91,7 +87,10 @@ class enc:
         self.response = self.chat_llm(self.messages)
         self.response_as_dict = self.output_parser.parse(self.response.content)
 
-        # TODO UPDATE LABELS
+        # Update Labels
+        self.ui.encNameLabel.setText(self.response_as_dict["name"])
+        self.ui.encCreaturesLabel.setText(str(self.response_as_dict["creatures"]))
+        self.ui.encDesLabel.setText(self.response_as_dict["description"])
 
 
     def save(self):

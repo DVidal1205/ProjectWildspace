@@ -2,13 +2,7 @@ from dotenv import load_dotenv
 from langchain.output_parsers import ResponseSchema
 from langchain.output_parsers import StructuredOutputParser
 from langchain.prompts import ChatPromptTemplate
-from langchain.chat_models import ChatOpenAI
-import random
-import math
-import json
-import os
 
-# Create the PWEngine Class and Init method
 class bldg:
 
     def __init__(self, ui, chat):
@@ -17,17 +11,6 @@ class bldg:
 
         # Create Chat Model
         self.chat_llm = chat
-
-        # Schema
-        # Building Generator
-        # Owner Name
-        # Building type (Tavern, Blacksmith, General Vendor, etc)
-        # Building name
-        # Architectural Style
-        # Interior Environment / Ambience
-        # Size
-        # Foot Traffic
-        # Entrance Description
 
         # Generate Schema
         self.type = ResponseSchema(name="type", description="Building Type (ex. Tavern, Blacksmith, Fisher, Market Vendor, etc)")
