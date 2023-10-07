@@ -270,7 +270,7 @@
             </widget>
            </item>
            <item row="4" column="1">
-            <widget class="QLabel" name="affiliationLabel">
+            <widget class="QLabel" name="alignmentLabel">
              <property name="text">
               <string/>
              </property>
@@ -330,9 +330,9 @@
             </widget>
            </item>
            <item row="3" column="1">
-            <widget class="QLabel" name="affilicationTxt">
+            <widget class="QLabel" name="alignmentTxt">
              <property name="text">
-              <string>Affiliation</string>
+              <string>Alignment</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignBottom|Qt::AlignHCenter</set>
@@ -391,16 +391,6 @@
              </property>
             </widget>
            </item>
-           <item row="6" column="0" colspan="2">
-            <widget class="QLabel" name="buildLabel">
-             <property name="text">
-              <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
            <item row="3" column="0">
             <widget class="QLabel" name="ageTxt">
              <property name="text">
@@ -412,7 +402,7 @@
             </widget>
            </item>
            <item row="4" column="1">
-            <widget class="QLabel" name="eyesLabel">
+            <widget class="QLabel" name="buildLabel">
              <property name="text">
               <string/>
              </property>
@@ -451,26 +441,6 @@
              </property>
             </widget>
            </item>
-           <item row="3" column="1">
-            <widget class="QLabel" name="eyesTxt">
-             <property name="text">
-              <string>Eyes</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="0" colspan="2">
-            <widget class="QLabel" name="buildTxt">
-             <property name="text">
-              <string>Build</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-             </property>
-            </widget>
-           </item>
            <item row="1" column="0">
             <widget class="QLabel" name="raceTxt">
              <property name="text">
@@ -483,6 +453,56 @@
            </item>
            <item row="2" column="1">
             <widget class="QLabel" name="heightLabel">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="eyesLabel">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLabel" name="buildTxt">
+             <property name="text">
+              <string>Build</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="eyesTxt">
+             <property name="text">
+              <string>Eyes</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QLabel" name="hairTxt">
+             <property name="text">
+              <string>Hair</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1">
+            <widget class="QLabel" name="hairLabel">
              <property name="text">
               <string/>
              </property>
