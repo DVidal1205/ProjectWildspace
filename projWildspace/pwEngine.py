@@ -6,7 +6,7 @@ from langchain.chat_models import ChatOpenAI
 import os
 
 # Create the PWEngine Class and Init method
-class pwEngine():
+class pwEngine:
 
     def __init__(self):
         # Get API Key from .env file
