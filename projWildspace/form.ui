@@ -28,6 +28,9 @@
   <property name="layoutDirection">
    <enum>Qt::LeftToRight</enum>
   </property>
+  <property name="styleSheet">
+   <string notr="true">.MainWindow {background: rgba(40,42,53,255);}</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
@@ -39,73 +42,68 @@
      </rect>
     </property>
     <layout class="QHBoxLayout" name="topBarHL">
+     <property name="spacing">
+      <number>0</number>
+     </property>
      <property name="leftMargin">
-      <number>10</number>
+      <number>0</number>
      </property>
      <property name="rightMargin">
-      <number>10</number>
+      <number>0</number>
      </property>
      <item>
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+      <widget class="QFrame" name="frame_2">
+       <property name="styleSheet">
+        <string notr="true">.QFrame {background: rgba(30, 30, 38, 255)}</string>
        </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
        </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>31</width>
-         <height>20</height>
-        </size>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
        </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QToolButton" name="hamburgerBtn">
-       <property name="text">
-        <string>...</string>
-       </property>
-       <property name="popupMode">
-        <enum>QToolButton::DelayedPopup</enum>
-       </property>
+       <widget class="QLabel" name="titleLabel">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>0</y>
+          <width>281</width>
+          <height>49</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Bahnschrift Light</family>
+          <pointsize>26</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+        </property>
+        <property name="text">
+         <string>Project Wildspace</string>
+        </property>
+       </widget>
+       <widget class="QToolButton" name="hamburgerBtn">
+        <property name="geometry">
+         <rect>
+          <x>37</x>
+          <y>11</y>
+          <width>26</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">.QToolButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}</string>
+        </property>
+        <property name="text">
+         <string>...</string>
+        </property>
+        <property name="popupMode">
+         <enum>QToolButton::DelayedPopup</enum>
+        </property>
+       </widget>
       </widget>
-     </item>
-     <item>
-      <spacer name="leftTopBarHLSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>365</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QLabel" name="titleLabel">
-       <property name="text">
-        <string>Project Wildspace</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="rightTopBarHLSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
      </item>
     </layout>
    </widget>
@@ -138,8 +136,8 @@
          <widget class="QWidget" name="verticalLayoutWidget_2">
           <property name="geometry">
            <rect>
-            <x>419</x>
-            <y>20</y>
+            <x>430</x>
+            <y>0</y>
             <width>421</width>
             <height>411</height>
            </rect>
@@ -147,6 +145,14 @@
           <layout class="QVBoxLayout" name="personalityVL">
            <item>
             <widget class="QLabel" name="personalityTxy">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
              <property name="text">
               <string>Personality</string>
              </property>
@@ -157,6 +163,14 @@
            </item>
            <item>
             <widget class="QLabel" name="fashionTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
              <property name="text">
               <string>Fashion</string>
              </property>
@@ -169,8 +183,12 @@
             <widget class="QLabel" name="fashionLabel">
              <property name="font">
               <font>
+               <family>Bahnschrift Light</family>
                <pointsize>8</pointsize>
               </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
              </property>
              <property name="text">
               <string/>
@@ -185,6 +203,14 @@
            </item>
            <item>
             <widget class="QLabel" name="quirksTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
              <property name="text">
               <string>Quirks</string>
              </property>
@@ -197,8 +223,12 @@
             <widget class="QLabel" name="quirksLabel">
              <property name="font">
               <font>
+               <family>Bahnschrift Light</family>
                <pointsize>8</pointsize>
               </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
              </property>
              <property name="text">
               <string/>
@@ -213,6 +243,14 @@
            </item>
            <item>
             <widget class="QLabel" name="goalsTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
              <property name="text">
               <string>Goals</string>
              </property>
@@ -225,8 +263,12 @@
             <widget class="QLabel" name="goalsLabel">
              <property name="font">
               <font>
+               <family>Bahnschrift Light</family>
                <pointsize>8</pointsize>
               </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
              </property>
              <property name="text">
               <string/>
@@ -241,6 +283,14 @@
            </item>
            <item>
             <widget class="QLabel" name="backgroundTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
              <property name="text">
               <string>Background</string>
              </property>
@@ -255,6 +305,9 @@
               <font>
                <pointsize>8</pointsize>
               </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
              </property>
              <property name="text">
               <string/>
@@ -272,95 +325,48 @@
          <widget class="QWidget" name="gridLayoutWidget_2">
           <property name="geometry">
            <rect>
-            <x>19</x>
-            <y>19</y>
+            <x>20</x>
+            <y>0</y>
             <width>381</width>
-            <height>201</height>
+            <height>211</height>
            </rect>
           </property>
+          <property name="font">
+           <font>
+            <family>Bahnschrift Light</family>
+           </font>
+          </property>
           <layout class="QGridLayout" name="characterGL">
-           <item row="1" column="1">
-            <widget class="QLabel" name="lastNameTxt">
-             <property name="text">
-              <string>Last Name</string>
+           <item row="4" column="0">
+            <widget class="QLabel" name="genderLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+               <pointsize>9</pointsize>
+              </font>
              </property>
-             <property name="alignment">
-              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
              </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QLabel" name="lastNameLabel">
-             <property name="text">
-              <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="1">
-            <widget class="QLabel" name="subclassTxt">
-             <property name="text">
-              <string>Subclass</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="1">
-            <widget class="QLabel" name="alignmentLabel">
              <property name="text">
               <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0">
-            <widget class="QLabel" name="genderTxt">
-             <property name="text">
-              <string>Gender</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
              </property>
             </widget>
            </item>
            <item row="6" column="1">
             <widget class="QLabel" name="subclassLabel">
-             <property name="text">
-              <string/>
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+               <pointsize>8</pointsize>
+              </font>
              </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
              </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="firstNameLabel">
-             <property name="text">
-              <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="firstNameTxt">
-             <property name="text">
-              <string>First Name</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="0">
-            <widget class="QLabel" name="genderLabel">
              <property name="text">
               <string/>
              </property>
@@ -371,6 +377,14 @@
            </item>
            <item row="3" column="1">
             <widget class="QLabel" name="alignmentTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
              <property name="text">
               <string>Alignment</string>
              </property>
@@ -379,18 +393,128 @@
              </property>
             </widget>
            </item>
-           <item row="5" column="0">
-            <widget class="QLabel" name="classTxt">
+           <item row="1" column="0">
+            <widget class="QLabel" name="firstNameTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
              <property name="text">
-              <string>Class</string>
+              <string>First Name</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignBottom|Qt::AlignHCenter</set>
              </property>
             </widget>
            </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="firstNameLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+               <pointsize>9</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
            <item row="6" column="0">
             <widget class="QLabel" name="classLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+               <pointsize>8</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLabel" name="lastNameTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Last Name</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="genderTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Gender</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLabel" name="lastNameLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+               <pointsize>9</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QLabel" name="alignmentLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+               <pointsize>9</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
              <property name="text">
               <string/>
              </property>
@@ -401,11 +525,55 @@
            </item>
            <item row="0" column="0" colspan="2">
             <widget class="QLabel" name="characterTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
              <property name="text">
               <string>Character</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="classTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Class</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QLabel" name="subclassTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Subclass</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
              </property>
             </widget>
            </item>
@@ -415,24 +583,40 @@
           <property name="geometry">
            <rect>
             <x>20</x>
-            <y>240</y>
+            <y>220</y>
             <width>381</width>
             <height>191</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="physicalGL">
-           <item row="2" column="0">
-            <widget class="QLabel" name="raceLabel">
+           <item row="1" column="1">
+            <widget class="QLabel" name="heightTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
              <property name="text">
-              <string/>
+              <string>Height</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
              </property>
             </widget>
            </item>
            <item row="3" column="0">
             <widget class="QLabel" name="ageTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
              <property name="text">
               <string>Age</string>
              </property>
@@ -443,66 +627,15 @@
            </item>
            <item row="4" column="1">
             <widget class="QLabel" name="buildLabel">
-             <property name="text">
-              <string/>
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+               <pointsize>8</pointsize>
+              </font>
              </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
              </property>
-            </widget>
-           </item>
-           <item row="0" column="0" colspan="2">
-            <widget class="QLabel" name="physicalTxt">
-             <property name="text">
-              <string>Physical</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="0">
-            <widget class="QLabel" name="ageLabel">
-             <property name="text">
-              <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QLabel" name="heightTxt">
-             <property name="text">
-              <string>Height</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="raceTxt">
-             <property name="text">
-              <string>Race</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QLabel" name="heightLabel">
-             <property name="text">
-              <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="0">
-            <widget class="QLabel" name="eyesLabel">
              <property name="text">
               <string/>
              </property>
@@ -513,6 +646,14 @@
            </item>
            <item row="3" column="1">
             <widget class="QLabel" name="buildTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
              <property name="text">
               <string>Build</string>
              </property>
@@ -521,8 +662,52 @@
              </property>
             </widget>
            </item>
+           <item row="0" column="0" colspan="2">
+            <widget class="QLabel" name="physicalTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Physical</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="raceTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Race</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+            </widget>
+           </item>
            <item row="5" column="0">
             <widget class="QLabel" name="eyesTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
              <property name="text">
               <string>Eyes</string>
              </property>
@@ -531,8 +716,34 @@
              </property>
             </widget>
            </item>
+           <item row="6" column="1">
+            <widget class="QLabel" name="hairLabel">
+             <property name="font">
+              <font>
+               <pointsize>8</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
            <item row="5" column="1">
             <widget class="QLabel" name="hairTxt">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
              <property name="text">
               <string>Hair</string>
              </property>
@@ -541,8 +752,73 @@
              </property>
             </widget>
            </item>
-           <item row="6" column="1">
-            <widget class="QLabel" name="hairLabel">
+           <item row="2" column="0">
+            <widget class="QLabel" name="raceLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+               <pointsize>8</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLabel" name="heightLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+               <pointsize>8</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="eyesLabel">
+             <property name="font">
+              <font>
+               <pointsize>8</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="ageLabel">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+               <pointsize>8</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {border: 1px solid rgba(177,147,242,255); color: rgba(119,244,136,255)}</string>
+             </property>
              <property name="text">
               <string/>
              </property>
@@ -562,7 +838,90 @@
             <height>51</height>
            </rect>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout"/>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <layout class="QHBoxLayout" name="bottomBarHL">
+             <property name="leftMargin">
+              <number>10</number>
+             </property>
+             <property name="rightMargin">
+              <number>10</number>
+             </property>
+             <item>
+              <spacer name="leftTopBarHLSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>420</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="generateBtn">
+               <property name="font">
+                <font>
+                 <family>Bahnschrift</family>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">.QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}</string>
+               </property>
+               <property name="text">
+                <string>Generate!</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>5</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QComboBox" name="dropDown">
+               <property name="font">
+                <font>
+                 <family>Bahnschrift</family>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">.QComboBox {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="rightTopBarHLSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+          </layout>
          </widget>
         </widget>
        </item>
@@ -571,180 +930,199 @@
     </widget>
     <widget class="QWidget" name="page_2"/>
    </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>-10</x>
-      <y>470</y>
-      <width>971</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="bottomBarHL">
-     <property name="leftMargin">
-      <number>10</number>
-     </property>
-     <property name="rightMargin">
-      <number>10</number>
-     </property>
-     <item>
-      <spacer name="leftTopBarHLSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>420</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="generateBtn">
-       <property name="text">
-        <string>Generate!</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>5</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QComboBox" name="dropDown"/>
-     </item>
-     <item>
-      <spacer name="rightTopBarHLSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-    </layout>
-   </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>50</y>
       <width>100</width>
-      <height>461</height>
+      <height>501</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="sideBarVL">
      <property name="spacing">
-      <number>10</number>
+      <number>0</number>
      </property>
      <property name="leftMargin">
-      <number>10</number>
+      <number>0</number>
      </property>
      <property name="rightMargin">
-      <number>10</number>
+      <number>0</number>
      </property>
      <item>
-      <widget class="QPushButton" name="npcBtn">
-       <property name="text">
-        <string>NPC</string>
+      <widget class="QFrame" name="frame">
+       <property name="styleSheet">
+        <string notr="true">.QFrame {background: rgba(30, 30, 38, 255)}</string>
        </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="buildingBtn">
-       <property name="text">
-        <string>Building</string>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
        </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="townBtn">
-       <property name="text">
-        <string>Town</string>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
        </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="encounterBtn">
-       <property name="text">
-        <string>Encounter</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="groupBtn">
-       <property name="text">
-        <string>Group</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="worldBtn">
-       <property name="text">
-        <string>World</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="sideBarVLVSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-      <widget class="QToolButton" name="warningBtn">
-       <property name="text">
-        <string>...</string>
-       </property>
-      </widget>
-     </item>
-     <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-      <widget class="QToolButton" name="helpBtn">
-       <property name="text">
-        <string>...</string>
-       </property>
+       <widget class="QPushButton" name="groupBtn">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>134</y>
+          <width>80</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Bahnschrift</family>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">.QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}</string>
+        </property>
+        <property name="text">
+         <string>Group</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="encounterBtn">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>102</y>
+          <width>80</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Bahnschrift</family>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">.QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}</string>
+        </property>
+        <property name="text">
+         <string>Encounter</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="npcBtn">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>6</y>
+          <width>80</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Bahnschrift</family>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">.QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}</string>
+        </property>
+        <property name="text">
+         <string>NPC</string>
+        </property>
+       </widget>
+       <widget class="QToolButton" name="helpBtn">
+        <property name="geometry">
+         <rect>
+          <x>37</x>
+          <y>439</y>
+          <width>26</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">.QToolButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}</string>
+        </property>
+        <property name="text">
+         <string>...</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="buildingBtn">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>38</y>
+          <width>80</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Bahnschrift</family>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">.QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}</string>
+        </property>
+        <property name="text">
+         <string>Building</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="worldBtn">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>166</y>
+          <width>80</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Bahnschrift</family>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">.QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}</string>
+        </property>
+        <property name="text">
+         <string>World</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="townBtn">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>70</y>
+          <width>80</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Bahnschrift</family>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">.QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}</string>
+        </property>
+        <property name="text">
+         <string>Town</string>
+        </property>
+       </widget>
+       <widget class="QToolButton" name="warningBtn">
+        <property name="geometry">
+         <rect>
+          <x>37</x>
+          <y>403</y>
+          <width>26</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">.QToolButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}</string>
+        </property>
+        <property name="text">
+         <string>...</string>
+        </property>
+       </widget>
       </widget>
      </item>
     </layout>
-    <zorder>npcBtn</zorder>
-    <zorder>sideBarVLVSpacer</zorder>
-    <zorder>townBtn</zorder>
-    <zorder>encounterBtn</zorder>
-    <zorder>groupBtn</zorder>
-    <zorder>buildingBtn</zorder>
-    <zorder>warningBtn</zorder>
-    <zorder>worldBtn</zorder>
-    <zorder>helpBtn</zorder>
    </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>
