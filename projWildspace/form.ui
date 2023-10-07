@@ -124,7 +124,7 @@
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>6</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="page1NPC">
      <widget class="QWidget" name="gridLayoutWidget">
@@ -143,9 +143,9 @@
           <property name="geometry">
            <rect>
             <x>430</x>
-            <y>-20</y>
-            <width>411</width>
-            <height>441</height>
+            <y>0</y>
+            <width>421</width>
+            <height>411</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="personalityVL">
@@ -1768,7 +1768,7 @@
        </rect>
       </property>
       <layout class="QGridLayout" name="encGridContainer">
-       <item row="0" column="0">
+       <item row="1" column="0">
         <widget class="QFrame" name="encFrame">
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -1780,9 +1780,9 @@
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>-30</y>
+            <y>10</y>
             <width>841</width>
-            <height>461</height>
+            <height>421</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout">
@@ -1831,6 +1831,73 @@
              </property>
              <property name="margin">
               <number>5</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_2">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+               <pointsize>9</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Challenge Rating</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="encCRSlider">
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <number>30</number>
+             </property>
+             <property name="singleStep">
+              <number>1</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_3">
+             <property name="font">
+              <font>
+               <family>Bahnschrift Light</family>
+               <pointsize>9</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">.QLabel {color: rgba(119,244,136,255);}</string>
+             </property>
+             <property name="text">
+              <string>Number of Creatures</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="encNumCreatures">
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <number>10</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
              </property>
             </widget>
            </item>

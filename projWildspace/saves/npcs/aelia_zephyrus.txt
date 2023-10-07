@@ -1,0 +1,22 @@
+Character Traits 
+First Name: Aelia
+Last Name: Zephyrus
+Gender: Female
+Alignment: Neutral Evil
+Class: Barbarian
+Subclass: Path of the Beast
+
+Physical Traits 
+Race: Aarakockra
+Height: 5'7"
+Age: 10
+Build: Athletic
+Hair Color: White
+Eye Color: Onyx
+
+Character Traits 
+Background: Aelia Zephyrus is a young Aarakocra barbarian who was raised in the oppressive nation of Morellus. She grew up witnessing the discrimination against magic users and developed a deep resentment towards the ruling class.
+Motivation: Aelia seeks to overthrow the oppressive regime of Morellus and establish a society where magic is accepted and celebrated. She believes that the path of the beast has granted her the strength and ferocity needed to achieve her goals.
+Quirk: Due to her young age and limited exposure to the outside world, Aelia often speaks in a straightforward and blunt manner. She has a tendency to take everything literally and struggles with understanding sarcasm and irony.
+Fashion: Aelia prefers practical clothing that allows her to move freely in combat. She typically wears a combination of lightweight armor and furs, adorned with feathers and bones to showcase her Aarakocra heritage. Her fashion style reflects her wild and untamed nature.
+

@@ -9,7 +9,7 @@ import os
 
 class pwEngine:
 
-    def __init__(self, ui):
+    def __init__(self, ui, world):
         # Get API Key from .env file
         load_dotenv()
         self.token = os.environ.get("OPENAI_API_KEY")
@@ -18,11 +18,11 @@ class pwEngine:
         self.chat_llm = ChatOpenAI(openai_api_key=self.token)
 
         # Create Engines
-        self.npc = npc(ui, self.chat_llm)
-        self.bldg = bldg(ui, self.chat_llm)
-        self.twn = twn(ui, self.chat_llm)
-        self.enc = enc(ui, self.chat_llm)
-        self.grp = grp(ui, self.chat_llm)
+        self.npc = npc(ui, self.chat_llm, world)
+        self.bldg = bldg(ui, self.chat_llm, world)
+        self.twn = twn(ui, self.chat_llm, world)
+        self.enc = enc(ui, self.chat_llm, world)
+        self.grp = grp(ui, self.chat_llm, world)
 
     def genNPC(self):
         self.npc.generate()

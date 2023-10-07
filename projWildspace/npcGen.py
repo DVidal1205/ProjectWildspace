@@ -6,9 +6,12 @@ import math
 
 class npc:
 
-    def __init__(self, ui, chat):
+    def __init__(self, ui, chat, world):
         # Create UI
         self.ui = ui
+
+        # Create World
+        self.world = world
 
         # Create Chat Model
         self.chat_llm = chat
@@ -237,8 +240,7 @@ class npc:
         self.character_traits["gender"] = self.gender
 
         # Create Messages
-        self.messages = self.prompt.format_messages(format_instructions=self.format_instructions, character_info=self.character_traits, world_info="World Name: Morellus. World Description: The nation of Morellus is a prosperous nation, but is severely oppressive towards those who use magic. Time Period: 1989 (Note: This is a fantasy world, so the time period is not the same as our own). Climate: Temperate. Presence of Magic: 8/10. Aesthetic: High Fantasy.")
-
+        self.messages = self.prompt.format_messages(format_instructions=self.format_instructions, character_info=self.character_traits, world_info=self.world.loadWorld(self))
         # Parse Response
         self.response = self.chat_llm(self.messages)
         self.response_as_dict = self.output_parser.parse(self.response.content)
@@ -254,11 +256,11 @@ class npc:
         # Update Labels
         self.ui.npcFirstNameLabel.setText(self.character_traits["first_name"])
         self.ui.npcLastNameLabel.setText(self.character_traits["last_name"])
-        self.ui.npcGenderLabel.setText(self.character_traits["gender"])
+        self.ui.genderLabel.setText(self.character_traits["gender"])
         self.ui.npcClassLabel.setText(self.character_traits["class"])
         self.ui.npcSubclassLabel.setText(self.character_traits["subclass"])
         self.ui.npcAlignmentLabel.setText(self.character_traits["alignment"])
-        self.ui.npcRaceLabel.setText(self.character_traits["race"])
+        self.ui.npcRraceLabel.setText(self.character_traits["race"])
         self.ui.npcHeightLabel.setText(self.character_traits["height"])
         self.ui.npcAgeLabel.setText(self.character_traits["age"])
         self.ui.npcEyesLabel.setText(self.character_traits["eyes"])
@@ -273,7 +275,7 @@ class npc:
     def save(self):
 
         # Create File
-        self.filename = "/saves/npcs/" + self.character_traits["first_name"].lower() + "_" + self.character_traits["last_name"].lower() + ".txt"
+        self.filename = "saves/npcs/" + self.character_traits["first_name"].lower() + "_" + self.character_traits["last_name"].lower() + ".txt"
         self.file = open(self.filename, "w")
 
         # Character Traints

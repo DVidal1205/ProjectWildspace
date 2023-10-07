@@ -8,19 +8,27 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale, qDebug,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
 from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
+from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout, QSlider,
     QHBoxLayout, QLabel, QLineEdit, QMainWindow,
     QPushButton, QSizePolicy, QSpacerItem, QStackedWidget,
     QTextEdit, QToolButton, QVBoxLayout, QWidget)
+from pwEngine import pwEngine
+from worldManager import world
+import os
 
 class Ui_MainWindow(object):
+
+    def __init__(self):
+        self.world = world(self)
+        self.engine = pwEngine(self, world)
+
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
@@ -78,7 +86,7 @@ class Ui_MainWindow(object):
         self.npcFrame.setObjectName(u"npcFrame")
         self.verticalLayoutWidget_2 = QWidget(self.npcFrame)
         self.verticalLayoutWidget_2.setObjectName(u"verticalLayoutWidget_2")
-        self.verticalLayoutWidget_2.setGeometry(QRect(430, -20, 411, 441))
+        self.verticalLayoutWidget_2.setGeometry(QRect(430, 0, 421, 411))
         self.personalityVL = QVBoxLayout(self.verticalLayoutWidget_2)
         self.personalityVL.setObjectName(u"personalityVL")
         self.personalityVL.setContentsMargins(0, 0, 0, 0)
@@ -800,7 +808,7 @@ class Ui_MainWindow(object):
         self.encFrame.setFrameShadow(QFrame.Raised)
         self.verticalLayoutWidget_5 = QWidget(self.encFrame)
         self.verticalLayoutWidget_5.setObjectName(u"verticalLayoutWidget_5")
-        self.verticalLayoutWidget_5.setGeometry(QRect(10, -30, 841, 461))
+        self.verticalLayoutWidget_5.setGeometry(QRect(10, 10, 841, 421))
         self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget_5)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -823,6 +831,39 @@ class Ui_MainWindow(object):
         self.encNameLabel.setMargin(5)
 
         self.verticalLayout.addWidget(self.encNameLabel)
+
+        self.label_2 = QLabel(self.verticalLayoutWidget_5)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setFont(font4)
+        self.label_2.setStyleSheet(u".QLabel {color: rgba(119,244,136,255);}")
+        self.label_2.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
+
+        self.verticalLayout.addWidget(self.label_2)
+
+        self.encCRSlider = QSlider(self.verticalLayoutWidget_5)
+        self.encCRSlider.setObjectName(u"encCRSlider")
+        self.encCRSlider.setMinimum(1)
+        self.encCRSlider.setMaximum(30)
+        self.encCRSlider.setSingleStep(1)
+        self.encCRSlider.setOrientation(Qt.Horizontal)
+
+        self.verticalLayout.addWidget(self.encCRSlider)
+
+        self.label_3 = QLabel(self.verticalLayoutWidget_5)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setFont(font4)
+        self.label_3.setStyleSheet(u".QLabel {color: rgba(119,244,136,255);}")
+        self.label_3.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
+
+        self.verticalLayout.addWidget(self.label_3)
+
+        self.encNumCreatures = QSlider(self.verticalLayoutWidget_5)
+        self.encNumCreatures.setObjectName(u"encNumCreatures")
+        self.encNumCreatures.setMinimum(1)
+        self.encNumCreatures.setMaximum(10)
+        self.encNumCreatures.setOrientation(Qt.Horizontal)
+
+        self.verticalLayout.addWidget(self.encNumCreatures)
 
         self.encCreaturesTxt = QLabel(self.verticalLayoutWidget_5)
         self.encCreaturesTxt.setObjectName(u"encCreaturesTxt")
@@ -865,7 +906,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.encDesLabel)
 
 
-        self.encGridContainer.addWidget(self.encFrame, 0, 0, 1, 1)
+        self.encGridContainer.addWidget(self.encFrame, 1, 0, 1, 1)
 
         self.stackedWidget.addWidget(self.page4Enc)
         self.page5Grp = QWidget()
@@ -1277,10 +1318,67 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(6)
+        self.world.load()
 
+
+        # Start at NPC
+        self.stackedWidget.setCurrentIndex(0)
+
+        # Slot Connects
+        self.generateBtn.clicked.connect(self.generate)
+        self.pushButton.clicked.connect(self.save)
+        self.npcBtn.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(0))
+        self.buildingBtn.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(1))
+        self.townBtn.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(2))
+        self.encounterBtn.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(3))
+        self.groupBtn.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(4))
+        self.dungeonBtn.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(5))
+        self.worldBtn.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(6))
+        self.encCRSlider.valueChanged.connect(self.updateCR)
+        self.encNumCreatures.valueChanged.connect(self.updateNum)
 
         QMetaObject.connectSlotsByName(MainWindow)
+    # setupUi
+
+    # Slot Functions
+    def generate(self):
+        index = self.stackedWidget.currentIndex()
+        if index == 0:
+            self.engine.genNPC()
+        elif index == 1:
+            self.engine.genBLDG()
+        elif index == 2:
+            self.engine.genTWN()
+        elif index == 3:
+            self.engine.genENC()
+        elif index == 4:
+            self.engine.genGRP()
+        self.world.load()
+
+    def save(self):
+        index = self.stackedWidget.currentIndex()
+        if index == 0:
+            self.engine.saveNPC()
+        elif index == 1:
+            self.engine.saveBLDG()
+        elif index == 2:
+            self.engine.saveTWN()
+        elif index == 3:
+            self.engine.saveENC()
+        elif index == 4:
+            self.engine.saveGRP()
+        elif index == 6:
+            self.world.save()
+        self.world.load()
+
+    def updateCR(self):
+        slider_value = self.encCRSlider.value()
+        self.label_2.setText(f"Challenge Rating: {slider_value}")
+
+    def updateNum(self):
+        slider_value = self.encNumCreatures.value()
+        self.label_3.setText(f"Number of Creatures: {slider_value}")
+
     # setupUi
 
     def retranslateUi(self, MainWindow):
@@ -1357,6 +1455,8 @@ class Ui_MainWindow(object):
         self.twnQuestLabel.setText("")
         self.encNameTxt.setText(QCoreApplication.translate("MainWindow", u"Encounter Name", None))
         self.encNameLabel.setText("")
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Challenge Rating", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Number of Creatures", None))
         self.encCreaturesTxt.setText(QCoreApplication.translate("MainWindow", u"Creatures", None))
         self.encCreaturesLabel.setText("")
         self.encDesTxt.setText(QCoreApplication.translate("MainWindow", u"Description", None))

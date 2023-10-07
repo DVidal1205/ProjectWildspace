@@ -4,17 +4,20 @@ from langchain.prompts import ChatPromptTemplate
 
 class twn:
 
-    def __init__(self, ui, chat):
+    def __init__(self, ui, chat, world):
         # Create UI
         self.ui = ui
 
         # Create Chat Model
         self.chat_llm = chat
 
+        # Create World
+        self.world = world
+
         # Generate Schema
         self.sprawl = ResponseSchema(name="sprawl", description="Sprawl Type (ex. Urban, Rural, etc)")
         self.name = ResponseSchema(name="name", description="Town Name. Be creative, and make the name sound fantasy by using prefixes from various languages")
-        self.population = ResponseSchema(name="population", description="Number of citizens (25 to 100,000 inclusive)")
+        self.population = ResponseSchema(name="population", description="Number of citizens (25 to 100,000 inclusive, and try to make the number seem random)")
         self.architecture = ResponseSchema(name="architecture", description="Architectural Style (ex. Gothic, Modern, Steampunk, etc)")
         self.industries = ResponseSchema(name="industries", description="Main Industries (ex. Fishing, Mining, Farming, etc)")
         self.lore = ResponseSchema(name="lore", description="Town Lore (1-3 Sentences)") 
@@ -46,7 +49,7 @@ class twn:
         self.prompt = ChatPromptTemplate.from_template(template=self.template_string)
 
         # Create Messages
-        self.messages = self.prompt.format_messages(format_instructions=self.format_instructions, world_info="World Name: Morellus. World Description: The nation of Morellus is a prosperous nation, but is severely oppressive towards those who use magic. Time Period: 1989 (Note: This is a fantasy world, so the time period is not the same as our own). Climate: Temperate. Presence of Magic: 8/10. Aesthetic: High Fantasy.")
+        self.messages = self.prompt.format_messages(format_instructions=self.format_instructions, world_info=self.world.loadWorld(self))
 
         # Parse Response
         self.response = self.chat_llm(self.messages)
@@ -61,13 +64,13 @@ class twn:
         self.ui.twnClimLabel.setText(self.response_as_dict["climate"])
         self.ui.twnIndLabel.setText(self.response_as_dict["industries"])
         self.ui.twnLoreLabel.setText(self.response_as_dict["lore"])
-        self.ui.twnQuestsLabel.setText(self.response_as_dict["quests"])
+        self.ui.twnQuestLabel.setText(self.response_as_dict["quests"])
         
 
     def save(self):
 
         # Create File
-        self.filename = "/saves/towns/" + self.response_as_dict["name"].lower().replace(" ", "_") + ".txt"
+        self.filename = "saves/towns/" + self.response_as_dict["name"].lower().replace(" ", "_") + ".txt"
         self.file = open(self.filename, "w")
 
         # Write to File

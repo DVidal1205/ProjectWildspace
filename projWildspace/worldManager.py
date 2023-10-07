@@ -1,4 +1,4 @@
-import os, glob
+import os
 
 class world:
 
@@ -8,28 +8,35 @@ class world:
     def load(self):
 
         # Get the files in the worlds folder and add their names to the combobox
-        folder_path = "/saves/worlds"
+        folder_path = "saves/worlds"
         file_list = os.listdir(folder_path)
         text_files = [os.path.splitext(file.lower())[0] for file in file_list if file.lower().endswith('.txt')]
         
         # Clear to ensure no duplicates and then add the files
-        self.comboBox.clear()
-        self.comboBox.addItems(text_files)
+        self.ui.dropDown.clear()
+        self.ui.dropDown.addItems(text_files)
+
+    def loadWorld(self):
+        self.worldName = self.ui.dropDown.currentText()
+        self.filename = "saves/worlds/" + self.worldName + ".txt"
+        self.file = open(self.filename, "r")
+        contents = self.file.read()
+        return contents
+
 
     def save(self):
-
         # Grab the world information
-        self.world_name = self.ui.worldNameEdit.getText()
-        self.time_period = self.ui.worldTimeEdit.getText()
-        self.climate = self.ui.worldClimateEdit.getText()
-        self.geography = self.ui.worldGeoEdit.getText()
-        self.stability = self.ui.worldStabilityEdit.getText()
-        self.magic = self.ui.worldMagicEdit.getText()
-        self.theme = self.ui.worldThemeEdit.getText()
+        self.world_name = self.ui.worldNameEdit.text()
+        self.time_period = self.ui.worldTimeEdit.text()
+        self.climate = self.ui.worldClimateEdit.text()
+        self.geography = self.ui.worldGeoEdit.text()
+        self.stability = self.ui.worldStabilityEdit.text()
+        self.magic = self.ui.worldMagicEdit.text()
+        self.theme = self.ui.worldThemeEdit.text()
         self.description = str(self.ui.worldDesEdit.toPlainText())
 
         # Create File
-        self.filename = "/saves/worlds" + self.world_name.lower().replace(" ", "_") + ".txt"
+        self.filename = "saves/worlds/" + self.world_name.lower().replace(" ", "_") + ".txt"
         self.file = open(self.filename, "w")
 
         # Write to File

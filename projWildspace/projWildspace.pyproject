@@ -6,6 +6,11 @@
         "pwEngine.py",
         "npcGen.py",
         "bldgGen.py",
+        "twnGen.py",
+        "encGen.py",
+        "grpGen.py",
+        "worldManager.py",
+        "waveCollapse.py",
         "images/wildspace.png"
    ]
 }

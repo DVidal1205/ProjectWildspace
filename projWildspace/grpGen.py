@@ -2,11 +2,15 @@ from langchain.output_parsers import ResponseSchema
 from langchain.output_parsers import StructuredOutputParser
 from langchain.prompts import ChatPromptTemplate
 
+
 class grp:
 
-    def __init__(self, ui, chat):
+    def __init__(self, ui, chat, world):
         # Create UI
         self.ui = ui
+
+        # Create World
+        self.world = world
 
         # Create Chat Model
         self.chat_llm = chat
@@ -43,19 +47,25 @@ class grp:
         self.prompt = ChatPromptTemplate.from_template(template=self.template_string)
 
         # Create Messages
-        self.messages = self.prompt.format_messages(format_instructions=self.format_instructions, world_info="World Name: Morellus. World Description: The nation of Morellus is a prosperous nation, but is severely oppressive towards those who use magic. Time Period: 1989 (Note: This is a fantasy world, so the time period is not the same as our own). Climate: Temperate. Presence of Magic: 8/10. Aesthetic: High Fantasy.")
-
+        self.messages = self.prompt.format_messages(format_instructions=self.format_instructions, world_info=self.world.loadWorld(self))
         # Parse Response
         self.response = self.chat_llm(self.messages)
         self.response_as_dict = self.output_parser.parse(self.response.content)
 
-        # TODO UPDATE LABELS
+        # Labels
+        self.ui.grpCauseLabel.setText(self.response_as_dict["goal"])
+        self.ui.grpNameLabel.setText(self.response_as_dict["name"])
+        self.ui.grpPopTxt_2.setText(self.response_as_dict["population"])
+        self.ui.grpDevotionTxt_2.setText(self.response_as_dict["devotion"])
+        self.ui.grpMoralityLabel.setText(self.response_as_dict["morality"])
+        self.ui.grpTraitsLabel.setText(self.response_as_dict["features"])
+        self.ui.grpPresenceLabel.setText(self.response_as_dict["activities"])
 
 
     def save(self):
 
         # Create File
-        self.filename = "/saves/groups/" + self.response_as_dict["name"].lower().replace(" ", "_") + ".txt"
+        self.filename = "saves/groups/" + self.response_as_dict["name"].lower().replace(" ", "_") + ".txt"
         self.file = open(self.filename, "w")
 
         # Write to File

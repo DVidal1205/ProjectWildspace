@@ -1,0 +1,3 @@
+Encounter: Battle for the Golden Scar
+Creatures: Adult Red Dragon, Veteran, Bandit, Ogre
+Description: As the party traverses the mountainous terrain of fortnitelandia, they stumble upon a hidden cave emitting a smokin atmosphere. Curiosity leads them inside, only to discover a group of powerful adventurers engaged in a fierce battle for the legendary Golden Scar. The party must decide whether to aid one of the factions or claim the Golden Scar for themselves.

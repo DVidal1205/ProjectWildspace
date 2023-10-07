@@ -5,9 +5,12 @@ import random
 
 class enc:
 
-    def __init__(self, ui, chat):
+    def __init__(self, ui, chat, world):
         # Create UI
         self.ui = ui
+
+        # Create WOrld
+        self.world = world
 
         # Create Chat Model
         self.chat_llm = chat
@@ -15,7 +18,7 @@ class enc:
         # Generate Schema
         self.name = ResponseSchema(name="name", description="Encounter Name, capture tones of excitement and treachery (1-5 words only)")
         self.description = ResponseSchema(name="description", description="Description of how the encounter begins, and some objectives for the encounter (1-3 Sentences)")
-        self.creatures = ResponseSchema(name="creatures", description="A comma separated list of beasts from the 5e Monster Manual, based on the Challenge Ratings specified above")
+        self.creatures = ResponseSchema(name="creatures", description="A comma separated list of beasts from the 5e Monster Manual, based on the Challenge Ratings specified.")
         self.response_schema = [self.name, self.description, self.creatures]
 
         # Create Schema Parser
@@ -37,8 +40,8 @@ class enc:
         {format_instructions}"""
 
     def crCombos(self):
-        # self.challengeRating = TODO GRAB FROM UI
-        # self.creatures = TODO GRAB FROM UI
+        challengeRating = self.ui.encCRSlider.value()
+        creatures = self.ui.encNumCreatures.value()
 
         values = []
         for i in range(1, 31): values.append(i)
@@ -79,10 +82,10 @@ class enc:
         self.prompt = ChatPromptTemplate.from_template(template=self.template_string)
 
         self.crList = self.crCombos()
+        self.crPrompt = "These are the following challenge rating of the monsters to generate: " + str(self.crList)
 
         # Create Messages
-        self.messages = self.prompt.format_messages(format_instructions=self.format_instructions, challenge_rating = self.crList, world_info="World Name: Morellus. World Description: The nation of Morellus is a prosperous nation, but is severely oppressive towards those who use magic. Time Period: 1989 (Note: This is a fantasy world, so the time period is not the same as our own). Climate: Temperate. Presence of Magic: 8/10. Aesthetic: High Fantasy.")
-
+        self.messages = self.prompt.format_messages(format_instructions=self.format_instructions, challenge_rating = self.crPrompt, world_info=self.world.loadWorld(self))
         # Parse Response
         self.response = self.chat_llm(self.messages)
         self.response_as_dict = self.output_parser.parse(self.response.content)
@@ -96,7 +99,7 @@ class enc:
     def save(self):
 
         # Create File
-        self.filename = "/saves/encounters/" + self.response_as_dict["name"].lower().replace(" ", "_") + ".txt"
+        self.filename = "saves/encounters/" + self.response_as_dict["name"].lower().replace(" ", "_") + ".txt"
         self.file = open(self.filename, "w")
 
         # Write to File

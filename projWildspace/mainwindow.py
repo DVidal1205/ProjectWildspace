@@ -23,7 +23,7 @@ if __name__ == "__main__":
     widget.show()
 
     # Set the Icon
-    icon = QIcon("images\wildspace.png")
+    icon = QIcon("images/wildspace.png")
     widget.setWindowIcon(icon)
 
     sys.exit(app.exec())
