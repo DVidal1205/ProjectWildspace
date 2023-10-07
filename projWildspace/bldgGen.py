@@ -33,7 +33,7 @@ class bldg:
         self.type = ResponseSchema(name="type", description="Building Type (ex. Tavern, Blacksmith, Fisher, Market Vendor, etc)")
         self.name = ResponseSchema(name="name", description="Building Name. Be creative, and take inspiration from building type")
         self.architecture = ResponseSchema(name="architecture", description="Architectural Style (ex. Gothic, Modern, Steampunk, etc)")
-        self.ambience = ResponseSchema(name="ambience", description="Description of the interior theme, style, and decor")
+        self.ambience = ResponseSchema(name="ambience", description="Description of the interior theme, style, and decor (5-15 words)")
         self.size = ResponseSchema(name="size", description="Size of the building (ex. Small, Medium, Large, etc)")
         self.traffic = ResponseSchema(name="traffic", description="Amount of foot traffic the building receives (ex. Low, Medium, High, etc)")
         self.description = ResponseSchema(name="description", description="Description of what is going on in the building, and what the player sees when they enter (1-3 Sentences)")
@@ -72,15 +72,15 @@ class bldg:
         self.response_as_dict = self.output_parser.parse(self.response.content)
 
         # Update Labels
-        self.ui.buildingNameLabel.setText(self.response_as_dict["name"])
-        self.ui.buildingTypeLabel.setText(self.response_as_dict["type"])
-        self.ui.buildingTenderLabel.setText(self.response_as_dict["tender"])
-        self.ui.buildingArcLabel.setText(self.response_as_dict["architecture"])
-        self.ui.buildingAmbLabel.setText(self.response_as_dict["ambience"])
-        self.ui.buildingSizeLabel.setText(self.response_as_dict["size"])
-        self.ui.buildingTrafficLabel.setText(self.response_as_dict["traffic"])
-        self.ui.buildingDesLabel.setText(self.response_as_dict["description"])
-        self.ui.buildingGoodsLabel.setText(self.response_as_dict["goods"])
+        self.ui.bldgNameLabel.setText(self.response_as_dict["name"])
+        self.ui.bldgTypeLabel.setText(self.response_as_dict["type"])
+        self.ui.bldgTenderLabel.setText(self.response_as_dict["tender"])
+        self.ui.bldgArcLabel.setText(self.response_as_dict["architecture"])
+        self.ui.bldgAmbLabel.setText(self.response_as_dict["ambience"])
+        self.ui.bldgSizeLabel.setText(self.response_as_dict["size"])
+        self.ui.bldgTrafficLabel.setText(self.response_as_dict["traffic"])
+        self.ui.bldgDesLabel.setText(self.response_as_dict["description"])
+        self.ui.bldgGoodsLabel.setText(self.response_as_dict["goods"])
 
         
 

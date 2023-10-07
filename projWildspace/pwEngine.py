@@ -5,6 +5,9 @@ from langchain.prompts import ChatPromptTemplate
 from langchain.chat_models import ChatOpenAI
 from npcGen import npc
 from bldgGen import bldg
+from twnGen import twn
+from encGen import enc
+from grpGen import grp
 import os
 
 # Create the PWEngine Class and Init method
@@ -21,6 +24,9 @@ class pwEngine:
         # Create Engines
         self.npc = npc(ui, self.chat_llm)
         self.bldg = bldg(ui, self.chat_llm)
+        self.twn = twn(ui, self.chat_llm)
+        self.enc = enc(ui, self.chat_llm)
+        self.grp = grp(ui, self.chat_llm)
 
     def genNPC(self):
         self.npc.generate()
@@ -29,11 +35,11 @@ class pwEngine:
         self.bldg.generate()
 
     def genTWN(self):    
-        pass
+        self.twn.generate()
 
     def genENC(self):
-        pass
+        self.enc.generate()
 
     def genGRP(self):
-        pass
+        self.grp.generate()
 

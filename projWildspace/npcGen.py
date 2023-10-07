@@ -257,22 +257,22 @@ class npc:
         self.character_traits["fashion"] = self.response_as_dict["fashion"]
 
         # Update Labels
-        self.ui.firstNameLabel.setText(self.character_traits["first_name"])
-        self.ui.lastNameLabel.setText(self.character_traits["last_name"])
-        self.ui.genderLabel.setText(self.character_traits["gender"])
-        self.ui.classLabel.setText(self.character_traits["class"])
-        self.ui.subclassLabel.setText(self.character_traits["subclass"])
-        self.ui.alignmentLabel.setText(self.character_traits["alignment"])
-        self.ui.raceLabel.setText(self.character_traits["race"])
-        self.ui.heightLabel.setText(self.character_traits["height"])
-        self.ui.ageLabel.setText(self.character_traits["age"])
-        self.ui.eyesLabel.setText(self.character_traits["eyes"])
-        self.ui.buildLabel.setText(self.character_traits["build"])
-        self.ui.hairLabel.setText(self.character_traits["hair"])
-        self.ui.backgroundLabel.setText(self.character_traits["background"])
-        self.ui.goalsLabel.setText(self.character_traits["motivation"])
-        self.ui.quirksLabel.setText(self.character_traits["quirk"])
-        self.ui.fashionLabel.setText(self.character_traits["fashion"])
+        self.ui.npcFirstNameLabel.setText(self.character_traits["first_name"])
+        self.ui.npcLastNameLabel.setText(self.character_traits["last_name"])
+        self.ui.npcGenderLabel.setText(self.character_traits["gender"])
+        self.ui.npcClassLabel.setText(self.character_traits["class"])
+        self.ui.npcSubclassLabel.setText(self.character_traits["subclass"])
+        self.ui.npcAlignmentLabel.setText(self.character_traits["alignment"])
+        self.ui.npcRaceLabel.setText(self.character_traits["race"])
+        self.ui.npcHeightLabel.setText(self.character_traits["height"])
+        self.ui.npcAgeLabel.setText(self.character_traits["age"])
+        self.ui.npcEyesLabel.setText(self.character_traits["eyes"])
+        self.ui.npcBuildLabel.setText(self.character_traits["build"])
+        self.ui.npcHairLabel.setText(self.character_traits["hair"])
+        self.ui.npcBackgroundLabel.setText(self.character_traits["background"])
+        self.ui.npcGoalsLabel.setText(self.character_traits["motivation"])
+        self.ui.npcQuirksLabel.setText(self.character_traits["quirk"])
+        self.ui.npcFashionLabel.setText(self.character_traits["fashion"])
 
 
         
