@@ -19,8 +19,14 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
     QHBoxLayout, QLabel, QMainWindow, QPushButton,
     QSizePolicy, QSpacerItem, QStackedWidget, QToolButton,
     QVBoxLayout, QWidget)
+from pwEngine import pwEngine
 
 class Ui_MainWindow(object):
+
+    def __init__(self):
+        self.engine = pwEngine(self)
+
+
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
@@ -624,11 +630,31 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        # Always Start on Page 1
+        self.stackedWidget.setCurrentIndex(1)
+
+        # Connect Stacked Widget Slots
+        self.npcBtn.clicked.connect(self.npcButtonHandler)
+        self.buildingBtn.clicked.connect(self.buildingButtonHandler)
+        self.generateBtn_2.clicked.connect(self.generate)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
+    
+    # Handlers
+    def generate(self):
+        self.index = self.stackedWidget.currentIndex()
+        if self.index == 1:
+            self.engine.genNPC()
+        elif self.index == 2:
+            self.engine.genBLDG()
+    
+    def npcButtonHandler(self):
+        self.stackedWidget.setCurrentIndex(1)
+
+    def buildingButtonHandler(self):
+        self.stackedWidget.setCurrentIndex(2)
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
