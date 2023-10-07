@@ -71,3 +71,13 @@ CMakeLists.txt.user*
 # Binaries
 # --------
 *.dll
+
+# Ignore virtual environment directory
+venv/
+
+# Ignore user-specific configuration files
+.vscode/
+.idea/
+*.pyc
+.env
+
