@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout, QSlider,
     QHBoxLayout, QLabel, QLineEdit, QMainWindow,
     QPushButton, QSizePolicy, QSpacerItem, QStackedWidget,
-    QTextEdit, QToolButton, QVBoxLayout, QWidget)
+    QTextEdit, QToolButton, QVBoxLayout, QWidget, QMessageBox)
 from pwEngine import pwEngine
 from worldManager import world
 import os
@@ -1341,6 +1341,10 @@ class Ui_MainWindow(object):
     # setupUi
 
     # Slot Functions
+    def helpMessage(self):
+        QMessageBox.information(self, "Help Message", "For more information, visit the project site at https://www.projectwildspace.tech, or submit an issue to the github repository.")
+
+
     def generate(self):
         index = self.stackedWidget.currentIndex()
         if index == 0:
