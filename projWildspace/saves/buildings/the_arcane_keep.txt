@@ -1,9 +1,0 @@
-Name: The Arcane Keep
-Type: Library
-Ambience: Mysterious and enchanting, with dim lighting and shelves filled with ancient tomes
-Architecture: Neo-Gothic
-Size: Large
-Traffic: Medium
-Vendor: The Librarian, a half-elf with silver hair and piercing blue eyes, appears stern but has a kind heart. She is known for her vast knowledge and willingness to assist adventurers in their quests.
-Description: Upon entering The Arcane Keep, the party is greeted by the smell of old parchment and the sight of scholars engrossed in their studies. The shelves are lined with books on various magical subjects, and a soft glow emanates from a crystal chandelier hanging from the ceiling.
-Goods: The Arcane Keep offers a wide range of magical tomes, scrolls, and spell components. It also houses a hidden section with forbidden knowledge and dangerous artifacts.

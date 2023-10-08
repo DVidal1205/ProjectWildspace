@@ -17,7 +17,7 @@ class twn:
         # Generate Schema
         self.sprawl = ResponseSchema(name="sprawl", description="Sprawl Type (ex. Urban, Rural, etc)")
         self.name = ResponseSchema(name="name", description="Town Name. Be creative, and make the name sound fantasy by using prefixes from various languages")
-        self.population = ResponseSchema(name="population", description="Number of citizens (25 to 100,000 inclusive, and try to make the number seem random)")
+        self.population = ResponseSchema(name="population", description="Number of citizens (25 to 100,000 inclusive, and try to make the number seem random by ensuring it is not rounded)")
         self.architecture = ResponseSchema(name="architecture", description="Architectural Style (ex. Gothic, Modern, Steampunk, etc)")
         self.industries = ResponseSchema(name="industries", description="Main Industries (ex. Fishing, Mining, Farming, etc)")
         self.lore = ResponseSchema(name="lore", description="Town Lore (1-3 Sentences)") 

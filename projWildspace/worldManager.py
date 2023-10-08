@@ -6,7 +6,6 @@ class world:
         self.ui = ui
 
     def load(self):
-
         # Get the files in the worlds folder and add their names to the combobox
         folder_path = "saves/worlds"
         file_list = os.listdir(folder_path)
@@ -27,6 +26,8 @@ class world:
     def save(self):
         # Grab the world information
         self.world_name = self.ui.worldNameEdit.text()
+        if self.world_name == None:
+            return
         self.time_period = self.ui.worldTimeEdit.text()
         self.climate = self.ui.worldClimateEdit.text()
         self.geography = self.ui.worldGeoEdit.text()
@@ -40,14 +41,14 @@ class world:
         self.file = open(self.filename, "w")
 
         # Write to File
-        self.file.write("Name: " + self.world_name + "\n")
-        self.file.write("Time Period: " + self.time_period + "\n")
-        self.file.write("Climate: " + self.climate + "\n")
-        self.file.write("Geography: " + self.geography + "\n")
-        self.file.write("Stability: " + self.stability + "\n")
-        self.file.write("Magic: " + self.magic + "\n")
-        self.file.write("Theme: " + self.theme + "\n")
-        self.file.write("Description: " + self.description + "\n")
+        self.file.write("World Name: " + self.world_name + "\n")
+        self.file.write("World Time Period: " + self.time_period + "\n")
+        self.file.write("World Climate: " + self.climate + "\n")
+        self.file.write("World Geography: " + self.geography + "\n")
+        self.file.write("World Stability: " + self.stability + "\n")
+        self.file.write("World Magic: " + self.magic + "\n")
+        self.file.write("World Theme: " + self.theme + "\n")
+        self.file.write("World Description: " + self.description + "\n")
 
         # Close File
         self.file.close()

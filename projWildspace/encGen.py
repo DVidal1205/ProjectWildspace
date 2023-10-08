@@ -82,7 +82,7 @@ class enc:
         self.prompt = ChatPromptTemplate.from_template(template=self.template_string)
 
         self.crList = self.crCombos()
-        self.crPrompt = "These are the following challenge rating of the monsters to generate: " + str(self.crList)
+        self.crPrompt = "These are the following challenge rating of the monsters to generate: " + str(self.crList) + ". The encounter must have a total of " + str(self.ui.encNumCreatures.value()) + "creatures with a challenge rating of " + str(self.ui.encCRSlider.value())
 
         # Create Messages
         self.messages = self.prompt.format_messages(format_instructions=self.format_instructions, challenge_rating = self.crPrompt, world_info=self.world.loadWorld(self))

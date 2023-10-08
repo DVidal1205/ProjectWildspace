@@ -34,7 +34,7 @@ class Ui_MainWindow(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(960, 540)
         MainWindow.setMinimumSize(QSize(960, 540))
-        MainWindow.setMaximumSize(QSize(1920, 1080))
+        MainWindow.setMaximumSize(QSize(960, 540))
         icon = QIcon()
         icon.addFile(u"images/wildspace.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
