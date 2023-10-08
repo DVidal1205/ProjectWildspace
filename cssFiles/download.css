@@ -8,7 +8,7 @@
 
     --tiny-padding: 5px;
     --small-margin: 20px;
-    --mid-margin: 40px;
+    --mid-margin: 60px;
     --large-margin: 100px;
     --half: 50%;
     --half-height: 50vh;
@@ -27,22 +27,11 @@
 
 html {font-family: var(--font-fam);}
 
-#divider1 {
-    border-right: var(--small-border-width) double white;
-    padding: var(--tiny-padding);
-    min-height: 100vh;
-    width: var(--half);
-    color: var(--alt-textc);
-    position: absolute;
-}
-#divider2 {
-    position: absolute;
-    margin-left: calc(var(--half) + var(--mid-margin));
-    margin-top: var(--small-margin);
-}
+main {color: var(--alt-textc);}
+
 .screenshot {
-    margin-top: var(--large-margin);
-    margin-bottom: calc(var(--half-height) - var(--image-height));
+    margin: var(--small-margin) var(--small-margin) 0 0;
+    float: right;
     width: var(--image-width);
     height: var(--image-height);
 }
@@ -50,7 +39,7 @@ html {font-family: var(--font-fam);}
 h1 {margin-top: 0; text-align: center;}
 .text {
     text-align: center;
-    height: var(--half-height);
+    height: var(--image-height);
     padding: 0;
     margin: 0;
 }
