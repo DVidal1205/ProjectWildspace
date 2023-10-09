@@ -1,18 +1,20 @@
-from dotenv import load_dotenv
 from langchain.chat_models import ChatOpenAI
 from npcGen import npc
 from bldgGen import bldg
 from twnGen import twn
 from encGen import enc
 from grpGen import grp
-import os
 
 class pwEngine:
 
     def __init__(self, ui, world):
         # Get API Key from .env file
-        load_dotenv()
-        self.token = os.environ.get("OPENAI_API_KEY")
+        self.file = open("api.txt", "r")
+        self.token = self.file.readline().strip()
+        print(self.token)
+        if self.token == "":
+            self.token = "sk-6f2c2-6f2c2-6f2c2-6f2c2"
+        self.file.close()
 
         # Create Chat Model
         self.chat_llm = ChatOpenAI(openai_api_key=self.token)

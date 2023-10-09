@@ -1336,16 +1336,45 @@ class Ui_MainWindow(object):
         self.worldBtn.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(6))
         self.encCRSlider.valueChanged.connect(self.updateCR)
         self.encNumCreatures.valueChanged.connect(self.updateNum)
+        self.helpBtn.pressed.connect(self.helpMessage)
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
     # Slot Functions
     def helpMessage(self):
-        QMessageBox.information(self, "Help Message", "For more information, visit the project site at https://www.projectwildspace.tech, or submit an issue to the github repository.")
-
+        # Create a QMessageBox
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setWindowTitle("Information")
+        msgBox.setText("For more information, visit the project site at https://www.projectwildspace.tech, or submit an issue to the github repository.")
+        msgBox.setStandardButtons(QMessageBox.Ok)
+        
+        # Connect the button press to close the QMessageBox
+        msgBox.buttonClicked.connect(msgBox.close)
+        
+        # Show the QMessageBox
+        msgBox.exec()
 
     def generate(self):
+
+        if os.path.getsize("api.txt") == 0:
+            # Create a QMessageBox
+            msgBox = QMessageBox()
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setWindowTitle("Warning")
+            msgBox.setText("You do not have a valid API Key in api.txt. Please set one to use Project Wildspace. Be sure to restart the program after it is updated")
+            msgBox.setStandardButtons(QMessageBox.Ok)
+            
+            # Connect the button press to close the QMessageBox
+            msgBox.buttonClicked.connect(msgBox.close)
+            
+            # Show the QMessageBox
+            msgBox.exec()
+            
+            self.warningBtn.setStyleSheet(".QToolButton {background: rgb(255,0,0); }")
+            self.warningBtn.set
+    
         index = self.stackedWidget.currentIndex()
         if index == 0:
             self.engine.genNPC()

@@ -1,5 +1,6 @@
 # This Python file uses the following encoding: utf-8
 import sys
+import os
 
 from PySide6.QtWidgets import QApplication, QMainWindow
 # Important:
@@ -7,10 +8,32 @@ from PySide6.QtWidgets import QApplication, QMainWindow
 #     pyside6-uic form.ui -o ui_form.py, or
 #     pyside2-uic form.ui -o ui_form.py
 from ui_form import Ui_MainWindow
+from pwEngine import pwEngine
+from worldManager import world
+import langchain
 
 
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
+
+        # Create Folders
+        self.paths = [
+            "saves/worlds",
+            "saves/npcs",
+            "saves/buildings",
+            "saves/encounters",
+            "saves/towns",
+            "saves/groups",
+            "requirements"
+        ]
+
+        # Create API Text
+        file = open("api.txt", "a+")
+        file.close()
+
+        for path in self.paths:
+            if not os.path.exists(path):
+                os.makedirs(path)
         super().__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)

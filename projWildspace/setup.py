@@ -3,17 +3,7 @@ import os
 from cx_Freeze import setup, Executable
 
 # Define the list of files you want to include (besides your script).
-include_files = ["C:\\Users\\jammi\\Documents\\ProjectWildspace\\projWildspace\\wildspace.ico",
-                 "C:\\Users\\jammi\\Documents\\ProjectWildspace\\projWildspace\\mainwindow.py",
-                 "C:\\Users\\jammi\\Documents\\ProjectWildspace\\projWildspace\\bldgGen.py",
-                 "C:\\Users\\jammi\\Documents\\ProjectWildspace\\projWildspace\\encGen.py",
-                 "C:\\Users\\jammi\\Documents\\ProjectWildspace\\projWildspace\\form.ui",
-                 "C:\\Users\\jammi\\Documents\\ProjectWildspace\\projWildspace\\grpGen.py",
-                 "C:\\Users\\jammi\\Documents\\ProjectWildspace\\projWildspace\\npcGen.py",
-                 "C:\\Users\\jammi\\Documents\\ProjectWildspace\\projWildspace\\pwEngine.py",
-                 "C:\\Users\\jammi\\Documents\\ProjectWildspace\\projWildspace\\twnGen.py",
-                 "C:\\Users\\jammi\\Documents\\ProjectWildspace\\projWildspace\\ui_form.py",
-                 "C:\\Users\\jammi\\Documents\\ProjectWildspace\\projWildspace\\worldManager.py"]
+include_files = ["C:\\Users\\jammi\\Documents\\ProjectWildspace\\projWildspace\\wildspace.ico"]
 
 # Create an Executable object for your script.
 target = Executable(
@@ -24,7 +14,7 @@ target = Executable(
 
 # Define the modules and packages you want to include.
 # Make sure to include PySide6 and its submodules.
-packages = ["PySide6", "langchain"]
+packages = ["PySide6", "langchain", "openai"]
 
 # Create the setup call.
 setup(
