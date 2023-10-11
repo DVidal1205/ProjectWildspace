@@ -16,17 +16,21 @@ class world:
         self.ui.dropDown.addItems(text_files)
 
     def loadWorld(self):
-        self.worldName = self.ui.dropDown.currentText()
-        self.filename = "saves/worlds/" + self.worldName + ".txt"
-        self.file = open(self.filename, "r")
-        contents = self.file.read()
+        if self.ui.dropDown.currentText() == "" or self.ui.dropDown.currentText() == None or self.ui.dropDown.currentText() == " ":
+            self.worldName = self.ui.dropDown.currentText()
+            self.filename = "saves/worlds/" + self.worldName + ".txt"
+            self.file = open(self.filename, "r")
+            contents = self.file.read()
+            self.file.close()
+        else:
+            contents = " "
         return contents
 
 
     def save(self):
         # Grab the world information
         self.world_name = self.ui.worldNameEdit.text()
-        if self.world_name == None:
+        if self.world_name == "" or self.world_name == None or self.world_name.replace(" ", "") == "":
             return
         self.time_period = self.ui.worldTimeEdit.text()
         self.climate = self.ui.worldClimateEdit.text()
@@ -50,6 +54,20 @@ class world:
         self.file.write("World Theme: " + self.theme + "\n")
         self.file.write("World Description: " + self.description + "\n")
 
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setWindowTitle("Success!")
+        msgBox.setText("Your world has been saved!")
+        msgBox.setStandardButtons(QMessageBox.Ok)
+                
+        # Connect the button press to close the QMessageBox
+        msgBox.buttonClicked.connect(msgBox.close)
+                
+        # Show the QMessageBox
+        msgBox.exec()
+
+
         # Close File
         self.file.close()
+
         

@@ -8,26 +8,40 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale, qDebug,
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
 from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout, QSlider,
+from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
     QHBoxLayout, QLabel, QLineEdit, QMainWindow,
-    QPushButton, QSizePolicy, QSpacerItem, QStackedWidget,
-    QTextEdit, QToolButton, QVBoxLayout, QWidget, QMessageBox)
+    QPushButton, QSizePolicy, QSlider, QSpacerItem,
+    QStackedWidget, QTextEdit, QToolButton, QVBoxLayout,
+    QWidget, QMessageBox)
 from pwEngine import pwEngine
 from worldManager import world
 import os
+
 
 class Ui_MainWindow(object):
 
     def __init__(self):
         self.world = world(self)
         self.engine = pwEngine(self, world)
+
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setWindowTitle("Hello!")
+        msgBox.setText("Welcome to Project Wildspace...")
+        msgBox.setStandardButtons(QMessageBox.Ok)
+                
+        # Connect the button press to close the QMessageBox
+        msgBox.buttonClicked.connect(msgBox.close)
+                
+        # Show the QMessageBox
+        msgBox.exec()
 
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -36,7 +50,7 @@ class Ui_MainWindow(object):
         MainWindow.setMinimumSize(QSize(960, 540))
         MainWindow.setMaximumSize(QSize(960, 540))
         icon = QIcon()
-        icon.addFile(u"images/wildspace.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"wildspace.ico", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setLayoutDirection(Qt.LeftToRight)
         MainWindow.setStyleSheet(u".MainWindow {background: rgba(40,42,53,255);}")
@@ -65,7 +79,7 @@ class Ui_MainWindow(object):
         self.label = QLabel(self.topBarHLFrame)
         self.label.setObjectName(u"label")
         self.label.setGeometry(QRect(920, 10, 31, 31))
-        self.label.setPixmap(QPixmap(u"images/wildspace.png"))
+        self.label.setPixmap(QPixmap(u"wildspace.ico"))
         self.label.setScaledContents(True)
 
         self.topBarHL.addWidget(self.topBarHLFrame)
@@ -1072,6 +1086,24 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.page5Grp)
         self.page6Dungeon = QWidget()
         self.page6Dungeon.setObjectName(u"page6Dungeon")
+        self.gridLayoutWidget_9 = QWidget(self.page6Dungeon)
+        self.gridLayoutWidget_9.setObjectName(u"gridLayoutWidget_9")
+        self.gridLayoutWidget_9.setGeometry(QRect(-1, -1, 861, 441))
+        self.gridLayout = QGridLayout(self.gridLayoutWidget_9)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.betaLabel = QLabel(self.gridLayoutWidget_9)
+        self.betaLabel.setObjectName(u"betaLabel")
+        font5 = QFont()
+        font5.setFamilies([u"Bahnschrift SemiBold"])
+        font5.setPointSize(24)
+        font5.setBold(True)
+        self.betaLabel.setFont(font5)
+        self.betaLabel.setStyleSheet(u".QLabel {color: rgba(119,244,136,255)}")
+        self.betaLabel.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout.addWidget(self.betaLabel, 0, 0, 1, 1)
+
         self.stackedWidget.addWidget(self.page6Dungeon)
         self.page7World = QWidget()
         self.page7World.setObjectName(u"page7World")
@@ -1192,10 +1224,10 @@ class Ui_MainWindow(object):
         self.worldDesEdit = QTextEdit(self.worldFrame)
         self.worldDesEdit.setObjectName(u"worldDesEdit")
         self.worldDesEdit.setGeometry(QRect(493, 39, 341, 381))
-        font5 = QFont()
-        font5.setFamilies([u"Bahnschrift Light"])
-        font5.setPointSize(12)
-        self.worldDesEdit.setFont(font5)
+        font6 = QFont()
+        font6.setFamilies([u"Bahnschrift Light"])
+        font6.setPointSize(12)
+        self.worldDesEdit.setFont(font6)
         self.worldDesTxt = QLabel(self.worldFrame)
         self.worldDesTxt.setObjectName(u"worldDesTxt")
         self.worldDesTxt.setGeometry(QRect(498, 17, 331, 20))
@@ -1221,43 +1253,43 @@ class Ui_MainWindow(object):
         self.groupBtn = QPushButton(self.sideBarVLFrame)
         self.groupBtn.setObjectName(u"groupBtn")
         self.groupBtn.setGeometry(QRect(10, 134, 80, 22))
-        font6 = QFont()
-        font6.setFamilies([u"Bahnschrift"])
-        self.groupBtn.setFont(font6)
+        font7 = QFont()
+        font7.setFamilies([u"Bahnschrift"])
+        self.groupBtn.setFont(font7)
         self.groupBtn.setStyleSheet(u".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
         self.encounterBtn = QPushButton(self.sideBarVLFrame)
         self.encounterBtn.setObjectName(u"encounterBtn")
         self.encounterBtn.setGeometry(QRect(10, 102, 80, 22))
-        self.encounterBtn.setFont(font6)
+        self.encounterBtn.setFont(font7)
         self.encounterBtn.setStyleSheet(u".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
         self.npcBtn = QPushButton(self.sideBarVLFrame)
         self.npcBtn.setObjectName(u"npcBtn")
         self.npcBtn.setGeometry(QRect(10, 6, 80, 22))
-        self.npcBtn.setFont(font6)
+        self.npcBtn.setFont(font7)
         self.npcBtn.setStyleSheet(u".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
         self.helpBtn = QToolButton(self.sideBarVLFrame)
         self.helpBtn.setObjectName(u"helpBtn")
         self.helpBtn.setGeometry(QRect(37, 439, 26, 26))
-        font7 = QFont()
-        font7.setFamilies([u"Bahnschrift SemiBold"])
-        font7.setPointSize(13)
-        font7.setBold(True)
-        self.helpBtn.setFont(font7)
+        font8 = QFont()
+        font8.setFamilies([u"Bahnschrift SemiBold"])
+        font8.setPointSize(13)
+        font8.setBold(True)
+        self.helpBtn.setFont(font8)
         self.helpBtn.setStyleSheet(u".QToolButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
         self.buildingBtn = QPushButton(self.sideBarVLFrame)
         self.buildingBtn.setObjectName(u"buildingBtn")
         self.buildingBtn.setGeometry(QRect(10, 38, 80, 22))
-        self.buildingBtn.setFont(font6)
+        self.buildingBtn.setFont(font7)
         self.buildingBtn.setStyleSheet(u".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
         self.dungeonBtn = QPushButton(self.sideBarVLFrame)
         self.dungeonBtn.setObjectName(u"dungeonBtn")
         self.dungeonBtn.setGeometry(QRect(10, 166, 80, 22))
-        self.dungeonBtn.setFont(font6)
+        self.dungeonBtn.setFont(font7)
         self.dungeonBtn.setStyleSheet(u".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
         self.townBtn = QPushButton(self.sideBarVLFrame)
         self.townBtn.setObjectName(u"townBtn")
         self.townBtn.setGeometry(QRect(10, 70, 80, 22))
-        self.townBtn.setFont(font6)
+        self.townBtn.setFont(font7)
         self.townBtn.setStyleSheet(u".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
         self.warningBtn = QToolButton(self.sideBarVLFrame)
         self.warningBtn.setObjectName(u"warningBtn")
@@ -1266,7 +1298,7 @@ class Ui_MainWindow(object):
         self.worldBtn = QPushButton(self.sideBarVLFrame)
         self.worldBtn.setObjectName(u"worldBtn")
         self.worldBtn.setGeometry(QRect(10, 200, 80, 22))
-        self.worldBtn.setFont(font6)
+        self.worldBtn.setFont(font7)
         self.worldBtn.setStyleSheet(u".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
 
         self.sideBarVL.addWidget(self.sideBarVLFrame)
@@ -1283,7 +1315,7 @@ class Ui_MainWindow(object):
 
         self.dropDown = QComboBox(self.layoutWidget)
         self.dropDown.setObjectName(u"dropDown")
-        self.dropDown.setFont(font6)
+        self.dropDown.setFont(font7)
         self.dropDown.setStyleSheet(u".QComboBox {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
 
         self.bottomBarHL.addWidget(self.dropDown)
@@ -1294,7 +1326,7 @@ class Ui_MainWindow(object):
 
         self.generateBtn = QPushButton(self.layoutWidget)
         self.generateBtn.setObjectName(u"generateBtn")
-        self.generateBtn.setFont(font6)
+        self.generateBtn.setFont(font7)
         self.generateBtn.setStyleSheet(u".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
 
         self.bottomBarHL.addWidget(self.generateBtn)
@@ -1305,7 +1337,7 @@ class Ui_MainWindow(object):
 
         self.pushButton = QPushButton(self.layoutWidget)
         self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setFont(font6)
+        self.pushButton.setFont(font7)
         self.pushButton.setStyleSheet(u".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
 
         self.bottomBarHL.addWidget(self.pushButton)
@@ -1320,20 +1352,19 @@ class Ui_MainWindow(object):
 
         self.world.load()
 
-
         # Start at NPC
         self.stackedWidget.setCurrentIndex(0)
 
         # Slot Connects
         self.generateBtn.clicked.connect(self.generate)
         self.pushButton.clicked.connect(self.save)
-        self.npcBtn.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(0))
-        self.buildingBtn.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(1))
-        self.townBtn.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(2))
-        self.encounterBtn.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(3))
-        self.groupBtn.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(4))
-        self.dungeonBtn.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(5))
-        self.worldBtn.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(6))
+        self.npcBtn.clicked.connect(self.npcClicked)
+        self.buildingBtn.clicked.connect(self.bldgClicked)
+        self.townBtn.clicked.connect(self.twnClicked)
+        self.encounterBtn.clicked.connect(self.encClicked)
+        self.groupBtn.clicked.connect(self.grpClicked)
+        self.dungeonBtn.clicked.connect(self.dungeonClicked)
+        self.worldBtn.clicked.connect(self.worldClicked)
         self.encCRSlider.valueChanged.connect(self.updateCR)
         self.encNumCreatures.valueChanged.connect(self.updateNum)
         self.helpBtn.pressed.connect(self.helpMessage)
@@ -1342,6 +1373,105 @@ class Ui_MainWindow(object):
     # setupUi
 
     # Slot Functions
+    def npcClicked(self):
+        self.stackedWidget.setCurrentIndex(0)
+
+        # Reset the other labels to the original purple value
+        self.buildingBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.townBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.encounterBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.groupBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.groupBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.dungeonBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.worldBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+
+        # Set the label to a dark purple
+        self.npcBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgb(139, 61, 209)}")
+
+    def bldgClicked(self):
+        self.stackedWidget.setCurrentIndex(1)
+
+        # Reset the other labels to the original purple value
+        self.npcBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.townBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.encounterBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.groupBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.dungeonBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.worldBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+
+        # Set the label to a dark purple
+        self.buildingBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgb(139, 61, 209)}")
+
+    def twnClicked(self):
+        self.stackedWidget.setCurrentIndex(2)
+
+        # Reset the other labels to the original purple value
+        self.buildingBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.npcBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.encounterBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.groupBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.dungeonBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.worldBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+
+        # Set the label to a dark purple
+        self.townBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgb(139, 61, 209)}")
+
+    def encClicked(self):
+        self.stackedWidget.setCurrentIndex(3)
+
+        # Reset the other labels to the original purple value
+        self.buildingBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.townBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.npcBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.groupBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.dungeonBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.worldBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+
+        # Set the label to a dark purple
+        self.encounterBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgb(139, 61, 209)}")
+
+    def grpClicked(self):
+        self.stackedWidget.setCurrentIndex(4)
+
+        # Reset the other labels to the original purple value
+        self.buildingBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.townBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.encounterBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.npcBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.dungeonBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.worldBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+
+        # Set the label to a dark purple
+        self.groupBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgb(139, 61, 209)}")
+
+    def dungeonClicked(self):
+        self.stackedWidget.setCurrentIndex(5)
+
+        # Reset the other labels to the original purple value
+        self.buildingBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.townBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.encounterBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.groupBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.npcBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.worldBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+
+        # Set the label to a dark purple
+        self.dungeonBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgb(139, 61, 209)}")
+
+    def worldClicked(self):
+        self.stackedWidget.setCurrentIndex(6)
+
+        # Reset the other labels to the original purple value
+        self.buildingBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.townBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.encounterBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.groupBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.dungeonBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.npcBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+
+        # Set the label to a dark purple
+        self.worldBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgb(139, 61, 209)}")
+
     def helpMessage(self):
         # Create a QMessageBox
         msgBox = QMessageBox()
@@ -1376,6 +1506,7 @@ class Ui_MainWindow(object):
             self.warningBtn.set
     
         index = self.stackedWidget.currentIndex()
+        worldIndex = self.dropDown.currentIndex()
         if index == 0:
             self.engine.genNPC()
         elif index == 1:
@@ -1387,9 +1518,11 @@ class Ui_MainWindow(object):
         elif index == 4:
             self.engine.genGRP()
         self.world.load()
+        self.dropDown.setCurrentIndex(worldIndex)
 
     def save(self):
         index = self.stackedWidget.currentIndex()
+        worldIndex = self.dropDown.currentIndex()
         if index == 0:
             self.engine.saveNPC()
         elif index == 1:
@@ -1403,6 +1536,7 @@ class Ui_MainWindow(object):
         elif index == 6:
             self.world.save()
         self.world.load()
+        self.dropDown.setCurrentIndex(worldIndex)
 
     def updateCR(self):
         slider_value = self.encCRSlider.value()
@@ -1411,7 +1545,6 @@ class Ui_MainWindow(object):
     def updateNum(self):
         slider_value = self.encNumCreatures.value()
         self.label_3.setText(f"Number of Creatures: {slider_value}")
-
     # setupUi
 
     def retranslateUi(self, MainWindow):
@@ -1508,6 +1641,7 @@ class Ui_MainWindow(object):
         self.grpTraitsLabel.setText("")
         self.grpPresenceTxt.setText(QCoreApplication.translate("MainWindow", u"Presence", None))
         self.grpPresenceLabel.setText("")
+        self.betaLabel.setText(QCoreApplication.translate("MainWindow", u"DUNGEON GENERATION BETA COMING SOON...", None))
         self.worldNameTxt.setText(QCoreApplication.translate("MainWindow", u"World Name", None))
         self.worldTimeTxt.setText(QCoreApplication.translate("MainWindow", u"Time Period", None))
         self.worldClimateTxt.setText(QCoreApplication.translate("MainWindow", u"Climate", None))

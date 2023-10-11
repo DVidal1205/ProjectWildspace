@@ -1,15 +1,18 @@
+# pyinstaller --onedir --hidden-import PySide6 --hidden-import langchain --hidden-import openai --hidden-import bldgGen --hidden-import encGen --hidden-import grpGen --hidden-import npcGen --hidden-import pwEngine --hidden-import twnGen --hidden-import ui_form --hidden-import worldManager mainwindow.py
+# python setup.py build
+
 import sys
 import os
 from cx_Freeze import setup, Executable
 
 # Define the list of files you want to include (besides your script).
-include_files = ["C:\\Users\\jammi\\Documents\\ProjectWildspace\\projWildspace\\wildspace.ico"]
+include_files = ["wildspace.ico"]
 
 # Create an Executable object for your script.
 target = Executable(
-    script="C:\\Users\\jammi\\Documents\\ProjectWildspace\\projWildspace\\mainwindow.py",  # Replace with the name of your script.
+    script="mainwindow.py",  # Replace with the name of your script.
     base="Win32GUI",  # Change to "Win32GUI" for a GUI application on Windows.
-    icon="C:\\Users\\jammi\\Documents\\ProjectWildspace\\projWildspace\\wildspace.ico",  # Include the path to an icon file if needed.
+    icon="wildspace.ico",  # Include the path to an icon file if needed.
 )
 
 # Define the modules and packages you want to include.

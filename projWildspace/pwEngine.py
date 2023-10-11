@@ -1,4 +1,5 @@
 from langchain.chat_models import ChatOpenAI
+from PySide6.QtWidgets import QMessageBox
 from npcGen import npc
 from bldgGen import bldg
 from twnGen import twn
@@ -56,4 +57,3 @@ class pwEngine:
     def saveGRP(self):
         self.grp.save()
     
-

@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout, QSlider,
     QHBoxLayout, QLabel, QLineEdit, QMainWindow,
     QPushButton, QSizePolicy, QSpacerItem, QStackedWidget,
-    QTextEdit, QToolButton, QVBoxLayout, QWidget)
+    QTextEdit, QToolButton, QVBoxLayout, QWidget, QMessageBox)
 from pwEngine import pwEngine
 from worldManager import world
 import os
@@ -29,12 +29,24 @@ class Ui_MainWindow(object):
         self.world = world(self)
         self.engine = pwEngine(self, world)
 
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setWindowTitle("Hello!")
+        msgBox.setText("Welcome to Project Wildspace...")
+        msgBox.setStandardButtons(QMessageBox.Ok)
+            
+        # Connect the button press to close the QMessageBox
+        msgBox.buttonClicked.connect(msgBox.close)
+            
+        # Show the QMessageBox
+        msgBox.exec()
+
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(960, 540)
         MainWindow.setMinimumSize(QSize(960, 540))
-        MainWindow.setMaximumSize(QSize(1920, 1080))
+        MainWindow.setMaximumSize(QSize(960, 540))
         icon = QIcon()
         icon.addFile(u"images/wildspace.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -1327,22 +1339,155 @@ class Ui_MainWindow(object):
         # Slot Connects
         self.generateBtn.clicked.connect(self.generate)
         self.pushButton.clicked.connect(self.save)
-        self.npcBtn.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(0))
-        self.buildingBtn.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(1))
-        self.townBtn.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(2))
-        self.encounterBtn.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(3))
-        self.groupBtn.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(4))
-        self.dungeonBtn.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(5))
-        self.worldBtn.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(6))
+        self.npcBtn.clicked.connect(self.npcClicked)
+        self.buildingBtn.clicked.connect(self.bldgClicked)
+        self.townBtn.clicked.connect(self.twnClicked)
+        self.encounterBtn.clicked.connect(self.encClicked)
+        self.groupBtn.clicked.connect(self.grpClicked)
+        self.dungeonBtn.clicked.connect(self.dungeonClicked)
+        self.worldBtn.clicked.connect(self.worldClicked)
         self.encCRSlider.valueChanged.connect(self.updateCR)
         self.encNumCreatures.valueChanged.connect(self.updateNum)
+        self.helpBtn.pressed.connect(self.helpMessage)
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
     # Slot Functions
+    def npcClicked(self):
+        self.stackedWidget.setCurrentIndex(0)
+
+        # Reset the other labels to the original purple value
+        self.buildingBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.townBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.encounterBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.groupBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.groupBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.dungeonBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.worldBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+
+        # Set the label to a dark purple
+        self.npcBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgb(139, 61, 209)}")
+
+    def bldgClicked(self):
+        self.stackedWidget.setCurrentIndex(1)
+
+        # Reset the other labels to the original purple value
+        self.npcBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.townBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.encounterBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.groupBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.dungeonBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.worldBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+
+        # Set the label to a dark purple
+        self.buildingBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgb(139, 61, 209)}")
+
+    def twnClicked(self):
+        self.stackedWidget.setCurrentIndex(2)
+
+        # Reset the other labels to the original purple value
+        self.buildingBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.npcBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.encounterBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.groupBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.dungeonBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.worldBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+
+        # Set the label to a dark purple
+        self.townBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgb(139, 61, 209)}")
+
+    def encClicked(self):
+        self.stackedWidget.setCurrentIndex(3)
+
+        # Reset the other labels to the original purple value
+        self.buildingBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.townBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.npcBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.groupBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.dungeonBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.worldBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+
+        # Set the label to a dark purple
+        self.encounterBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgb(139, 61, 209)}")
+
+    def grpClicked(self):
+        self.stackedWidget.setCurrentIndex(4)
+
+        # Reset the other labels to the original purple value
+        self.buildingBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.townBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.encounterBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.npcBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.dungeonBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.worldBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+
+        # Set the label to a dark purple
+        self.group.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgb(139, 61, 209)}")
+
+    def dungeonClicked(self):
+        self.stackedWidget.setCurrentIndex(5)
+
+        # Reset the other labels to the original purple value
+        self.buildingBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.townBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.encounterBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.groupBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.dnpcBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.worldBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+
+        # Set the label to a dark purple
+        self.dungeonBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgb(139, 61, 209)}")
+
+    def worldClicked(self):
+        self.stackedWidget.setCurrentIndex(6)
+
+        # Reset the other labels to the original purple value
+        self.buildingBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.townBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.encounterBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.groupBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.dungeonBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+        self.npcBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgba(177,147,242,255)}")
+
+        # Set the label to a dark purple
+        self.worldBtn.setStyleSheet(".QPushButton {color: rgba(40,42,53,255); background: rgb(139, 61, 209)}")
+
+    def helpMessage(self):
+        # Create a QMessageBox
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setWindowTitle("Information")
+        msgBox.setText("For more information, visit the project site at https://www.projectwildspace.tech, or submit an issue to the github repository.")
+        msgBox.setStandardButtons(QMessageBox.Ok)
+        
+        # Connect the button press to close the QMessageBox
+        msgBox.buttonClicked.connect(msgBox.close)
+        
+        # Show the QMessageBox
+        msgBox.exec()
+
     def generate(self):
+
+        if os.path.getsize("api.txt") == 0:
+            # Create a QMessageBox
+            msgBox = QMessageBox()
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setWindowTitle("Warning")
+            msgBox.setText("You do not have a valid API Key in api.txt. Please set one to use Project Wildspace. Be sure to restart the program after it is updated")
+            msgBox.setStandardButtons(QMessageBox.Ok)
+            
+            # Connect the button press to close the QMessageBox
+            msgBox.buttonClicked.connect(msgBox.close)
+            
+            # Show the QMessageBox
+            msgBox.exec()
+            
+            self.warningBtn.setStyleSheet(".QToolButton {background: rgb(255,0,0); }")
+            self.warningBtn.set
+    
         index = self.stackedWidget.currentIndex()
+        worldIndex = self.dropDown.currentIndex()
         if index == 0:
             self.engine.genNPC()
         elif index == 1:
@@ -1354,9 +1499,11 @@ class Ui_MainWindow(object):
         elif index == 4:
             self.engine.genGRP()
         self.world.load()
+        self.dropDown.setCurrentIndex(worldIndex)
 
     def save(self):
         index = self.stackedWidget.currentIndex()
+        worldIndex = self.dropDown.currentIndex()
         if index == 0:
             self.engine.saveNPC()
         elif index == 1:
@@ -1370,6 +1517,7 @@ class Ui_MainWindow(object):
         elif index == 6:
             self.world.save()
         self.world.load()
+        self.dropDown.setCurrentIndex(worldIndex)
 
     def updateCR(self):
         slider_value = self.encCRSlider.value()

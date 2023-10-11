@@ -1,0 +1,15 @@
+{
+    "files": [
+        "mainwindow.py",
+        "form.ui",
+        "ui_form.py",
+        "bldgGen.py",
+        "encGen.py",
+        "grpGen.py",
+        "npcGen.py",
+        "pwEngine.py",
+        "twnGen.py",
+        "worldManager.py",
+        "wildspace.ico"
+    ]
+}
