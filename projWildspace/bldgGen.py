@@ -1,4 +1,3 @@
-from dotenv import load_dotenv
 from langchain.output_parsers import ResponseSchema
 from langchain.output_parsers import StructuredOutputParser
 from langchain.prompts import ChatPromptTemplate
